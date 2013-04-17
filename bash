@@ -199,9 +199,9 @@ if [ $OS == "Darwin" -o $OS == "FreeBSD" ]; then
   alias ll="ls -hlG"
   alias la="ls -hlaG"
 else
-  alias ls="ls -h --color=always --group-directories-first"
+  alias ls="ls -h --color=always"
   alias ll="ls -hl --color=always"
-  alias la="ls -hla --color=always --group-directories-first"
+  alias la="ls -hla --color=always"
 fi
 
 # Aliases for git
