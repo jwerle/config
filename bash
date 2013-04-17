@@ -2,6 +2,10 @@ if ! test -d ~/repos;
   then
   echo "Making repos directory in " $(cd ~ && pwd)
   mkdir ~/repos
+fi
+
+if ! test -d ~/repos/config;
+  then
   cd ~/repos && git clone git@github.com:jwerle/config.git
 fi
 
@@ -769,12 +773,12 @@ function makeAFunny () {
 command -v go && go jwerle;
 
 agent=`uname -a`
-printDelay ".02" $YELLOW"Getting ready"$NOCOLOR;
-printDelay ".015" $YELLOW" for "$NOCOLOR;
-printDelay ".0075" $YELLOW"action"$NOCOLOR;
-printDelay ".00325" $YELLOW"..."$NOCOLOR;
-printDelay ".001125" $CYAN" =)"$NOCOLOR;
-printDelay ".0005125" $CYAN" GO!"$NOCOLOR;
+printDelay ".002" $YELLOW"Getting ready"$NOCOLOR;
+printDelay ".0015" $YELLOW" for "$NOCOLOR;
+printDelay ".00075" $YELLOW"action"$NOCOLOR;
+printDelay ".000325" $YELLOW"..."$NOCOLOR;
+printDelay ".0001125" $CYAN" =)"$NOCOLOR;
+printDelay ".00005125" $CYAN" GO!"$NOCOLOR;
 echo
 clear
 sleep .05
