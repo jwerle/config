@@ -186,7 +186,7 @@ if [ $OS == "Darwin" -o $OS == "FreeBSD" ]; then
   alias la="ls -hlaG"
 else
   alias ls="ls -h --color=always --group-directories-first"
-  alias ll="ls -hl --color=always --group-directories-first"
+  alias ll="ls -hl --color=always"
   alias la="ls -hla --color=always --group-directories-first"
 fi
 
@@ -752,13 +752,15 @@ function makeAFunny () {
   echo $selectedexpression
 }
 
+command -v go && go jwerle;
+
 agent=`uname -a`
-printDelay ".05" $YELLOW"Getting ready"$NOCOLOR;
-printDelay ".025" $YELLOW" for "$NOCOLOR;
-printDelay ".0125" $YELLOW"action"$NOCOLOR;
-printDelay ".00625" $YELLOW"..."$NOCOLOR;
-printDelay ".003125" $CYAN" =)"$NOCOLOR;
-printDelay ".003125" $CYAN" GO!"$NOCOLOR;
+printDelay ".02" $YELLOW"Getting ready"$NOCOLOR;
+printDelay ".015" $YELLOW" for "$NOCOLOR;
+printDelay ".0075" $YELLOW"action"$NOCOLOR;
+printDelay ".00325" $YELLOW"..."$NOCOLOR;
+printDelay ".001125" $CYAN" =)"$NOCOLOR;
+printDelay ".0005125" $CYAN" GO!"$NOCOLOR;
 echo
 clear
 sleep .05
