@@ -2,7 +2,7 @@ if ! test -d ~/repos;
   then
   echo "Making repos directory in " $(cd ~ && pwd)
   mkdir ~/repos
-  cd ~/repos && git clone git@github.com:jwerle/config.git >2 /dev/null
+  cd ~/repos && git clone git@github.com:jwerle/config.git
 fi
 
 if test -d ~/repos/config;
@@ -10,7 +10,7 @@ if test -d ~/repos/config;
   echo "Updating config repo"
   sleep .003
   cd ~/repos/config && git pull origin master 2> /dev/null && cd
-  ln -s ~/repos/config/bash ~/.bashrc
+  if ! test -f ~/.bashrc; then ln -s ~/repos/config/bash ~/.bashrc; fi;
 fi;
 # Don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
