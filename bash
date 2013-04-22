@@ -675,13 +675,15 @@ function git-conflicts() {
 # User color
 case $(id -u) in
   0) user_color="$RED" ;;  # root
-  *) user_color="$GREEN" ;;
+  *) user_color="$CYAN" ;;
 esac
 
 # Symbols
-prompt_symbol="❯"
+#prompt_symbol="❯"
+prompt_symbol="√"
+prompt_symbol_bad="×"
 prompt_clean_symbol="☀ "
-prompt_dirty_symbol="☂ "
+prompt_dirty_symbol="☂ (modifications) "
 
 function prompt_command() {
   # Local or SSH session?
@@ -706,7 +708,7 @@ function prompt_command() {
     if [ -n "$dirty" ]; then
       git_prompt=" $RED$prompt_dirty_symbol$branch$NOCOLOR"
     else
-      git_prompt=" $GREEN$prompt_clean_symbol$branch$NOCOLOR"
+      git_prompt=" $CYAN$prompt_clean_symbol$branch$NOCOLOR"
     fi
   fi
 
@@ -726,7 +728,8 @@ function prompt_command() {
   first_line="$user_prompt$host_prompt$login_delimiter$WHITE\w$NOCOLOR$git_prompt"
   # Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
   # $? is a status of last command, should be processed every time prompt prints
-  second_line="\`if [ \$? = 0 ]; then echo \[\$CYAN\]; else echo \[\$RED\]; fi\`\$prompt_symbol\[\$NOCOLOR\] "
+  #second_line="\`if [ \$? = 0 ]; then echo \[\$CYAN\]; else echo \[\$RED\]; fi\`\$prompt_symbol\[\$NOCOLOR\] "
+  second_line="\`if [ \$? = 0 ]; then echo \[\$CYAN\] \$prompt_symbol; else echo \[\$RED\] \$prompt_symbol_bad; fi\`\\[\$NOCOLOR\] "
   PS1="\n$first_line\n$second_line"
 
   # Multiline command
@@ -782,12 +785,12 @@ printDelay ".00005125" $CYAN" GO!"$NOCOLOR;
 echo
 clear
 sleep .05
-printf $BOLD$BLUE"Agent: "$NOCOLOR; printf $BLUE"${agent}"$NOCOLOR
+printf $BOLD$CYAN"Agent : "$NOCOLOR; printf $CYAN"${agent}"$NOCOLOR
 echo
-printf $BOLD$BLUE"User: "$NOCOLOR; printf $BLUE"${USER}"$NOCOLOR
+printf $BOLD$CYAN"User  : "$NOCOLOR; printf $CYAN"${USER}"$NOCOLOR
 echo
 header
-echo $CYAN$USER$NOCOLOR@$BLUE$(uname)$NOCOLOR;
+echo $CYAN$USER$NOCOLOR@$CYAN$(uname)$NOCOLOR;
 nyan
 echo
 echo -en $YELLOW$(date "+The date is: %m/%d/%y")$NOCOLOR;
