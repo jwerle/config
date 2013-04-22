@@ -1,20 +1,23 @@
-if ! test -d ~/repos; 
+if ping -c 1 "github.com" > /dev/null;
   then
-  echo "Making repos directory in " $(cd ~ && pwd)
-  mkdir ~/repos
-fi
+  if ! test -d ~/repos; 
+    then
+    echo "Making repos directory in " $(cd ~ && pwd)
+    mkdir ~/repos
+  fi
 
-if ! test -d ~/repos/jwerle-config;
-  then
-  cd ~/repos && git clone git@github.com:jwerle/config.git jwerle-config
-fi
+  if ! test -d ~/repos/jwerle-config;
+    then
+    cd ~/repos && git clone git@github.com:jwerle/config.git jwerle-config
+  fi
 
-if test -d ~/repos/jwerle-config;
-  then
-  echo "Updating config repo"
-  sleep .003
-  cd ~/repos/jwerle-config && git pull origin master 2> /dev/null && cd
-  if ! test -f ~/.bashrc; then ln -s ~/repos/jwerle-config/bash ~/.bashrc; fi;
+  if test -d ~/repos/jwerle-config;
+    then
+    echo "Updating config repo"
+    sleep .003
+    cd ~/repos/jwerle-config && git pull origin master 2> /dev/null && cd
+    if ! test -f ~/.bashrc; then ln -s ~/repos/jwerle-config/bash ~/.bashrc; fi;
+  fi;
 fi;
 # Don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
