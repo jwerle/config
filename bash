@@ -776,6 +776,8 @@ function makeAFunny () {
   echo $selectedexpression
 }
 
+alias update-bash="source ~/.bashrc"
+
 command -v go && go jwerle;
 
 agent=`uname -a`
