@@ -86,11 +86,11 @@
 	<key>Ansi 3 Color</key>
 	<dict>
 		<key>Blue Component</key>
-		<real>0.27306511288431579</real>
+		<real>0.41162450326866978</real>
 		<key>Green Component</key>
-		<real>0.76058752828054299</real>
+		<real>0.65147765837104066</real>
 		<key>Red Component</key>
-		<real>0.75375294816073335</real>
+		<real>0.62352835746683155</real>
 	</dict>
 	<key>Ansi 4 Color</key>
 	<dict>
