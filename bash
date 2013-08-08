@@ -1,24 +1,24 @@
-if ping -c 1 "github.com" > /dev/null;
-  then
-  if ! test -d ~/repos; 
-    then
-    echo "Making repos directory in " $(cd ~ && pwd)
-    mkdir ~/repos
-  fi
+# if ping -c 1 "github.com" > /dev/null;
+#   then
+#   if ! test -d ~/repos; 
+#     then
+#     echo "Making repos directory in " $(cd ~ && pwd)
+#     mkdir ~/repos
+#   fi
 
-  if ! test -d ~/repos/jwerle-config;
-    then
-    cd ~/repos && git clone git@github.com:jwerle/config.git jwerle-config
-  fi
+#   if ! test -d ~/repos/jwerle-config;
+#     then
+#     cd ~/repos && git clone git@github.com:jwerle/config.git jwerle-config
+#   fi
 
-  if test -d ~/repos/jwerle-config;
-    then
-    echo "Updating config repo"
-    sleep .003
-    cd ~/repos/jwerle-config && git pull origin master 2> /dev/null && cd
-    if ! test -f ~/.bashrc; then ln -s ~/repos/jwerle-config/bash ~/.bashrc; fi;
-  fi;
-fi;
+#   if test -d ~/repos/jwerle-config;
+#     then
+#     echo "Updating config repo"
+#     sleep .003
+#     cd ~/repos/jwerle-config && git pull origin master 2> /dev/null && cd
+#     if ! test -f ~/.bashrc; then ln -s ~/repos/jwerle-config/bash ~/.bashrc; fi;
+#   fi;
+# fi;
 # Don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -222,6 +222,9 @@ export PAGER="most"
 # Load rbenv
 [[ -d $HOME/.rbenv ]] && source $HOME/.rbenvrc
 
+# Load bless
+[[ -d $HOME/.bless ]] && source $HOME/.blessrc
+
 # Load phpenv
 [[ -d $HOME/.phpenv ]] && source $HOME/.phpenvrc
 
@@ -249,6 +252,7 @@ alias gh="github"
 alias +x="chmod +x"
 alias x+="chmod +x"
 alias g="ack -ri"
+alias kdns="killall -HUP mDNSResponder"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then  # GNU `ls`
@@ -762,9 +766,10 @@ function printDelay () {
 
 
 ## where the fun begins......
-function makeAFunny () {
+function saySomething () {
   # Array with expressions
-  expressions=("Ploink Poink" "I Need Oil" "Some Bytes are Missing!" "Poink Poink" "Piiiip Beeeep!!" "Hello" "Whoops! I'm out of memmory!")
+  expressions=("Its going to be legendary"
+    "Ploink Poink" "I Need Oil" "Some Bytes are Missing!" "Poink Poink" "Piiiip Beeeep!!" "Hello" "Whoops! I'm out of memmory!")
 
   # Seed random generator
   RANDOM=$$$(date +%s)
@@ -776,30 +781,26 @@ function makeAFunny () {
   echo $selectedexpression
 }
 
+if test -d ~/repos;
+  then
+  function repo () {
+    cd ~/repos/$1
+  }
+
+  function _repos () {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(ls ~/repos)" -- $cur) )
+  }
+
+  complete -F _repos repo
+fi
+
 alias update-bash="source ~/.bashrc"
 
+# hop into go if we can
 command -v go && go jwerle;
 
-agent=`uname -a`
-printDelay ".002" $YELLOW"Getting ready"$NOCOLOR;
-printDelay ".0015" $YELLOW" for "$NOCOLOR;
-printDelay ".00075" $YELLOW"action"$NOCOLOR;
-printDelay ".000325" $YELLOW"..."$NOCOLOR;
-printDelay ".0001125" $CYAN" =)"$NOCOLOR;
-printDelay ".00005125" $CYAN" GO!"$NOCOLOR;
-echo
-clear
-sleep .05
-printf $BOLD$CYAN"Agent : "$NOCOLOR; printf $CYAN"${agent}"$NOCOLOR
-echo
-printf $BOLD$CYAN"User  : "$NOCOLOR; printf $CYAN"${USER}"$NOCOLOR
-echo
-header
-echo $CYAN$USER$NOCOLOR@$CYAN$(uname)$NOCOLOR;
-nyan
-echo
-echo -en $YELLOW$(date "+The date is: %m/%d/%y")$NOCOLOR;
-echo
-echo -en $CYAN$(date "+The time is: %H:%M:%S")$NOCOLOR
 echo
 
+
+export PATH="$PATH":~/repos/depot_tools
