@@ -802,5 +802,4 @@ command -v go && go jwerle;
 
 echo
 
-
-export PATH="$PATH":~/repos/depot_tools
+alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
