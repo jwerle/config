@@ -162,9 +162,9 @@ export PATH=$PATH:$HOME/Dropbox/bin
 export PATH=$PATH:.
 
 # Add Vim as the default editor
-export EDITOR=subl
-export CVSEDITOR=subl
-export SVN_EDITOR=subl
+export EDITOR=vim
+export CVSEDITOR=vim
+export SVN_EDITOR=vim
 
 # Regular Colors
 txtrst='\e[0m'          # Text Reset
@@ -326,11 +326,6 @@ alias npm-release='npm version minor -m "%s"'
 alias gw="grunt watch --debug"
 alias gs="grunt connect watch --debug"
 gi() { grunt-init $@; }
-
-# Magic Project Opener
-function proj { cd "$("$HOME/dotfiles/bin/opener.py" "$HOME/Dropbox/Projects" $1 -w project $2)"; }
-function repo { cd "$("$HOME/dotfiles/bin/opener.py" "$HOME/Dropbox/Projects" $1 -w repo $2)"; }
-function wptheme { cd "$("$HOME/dotfiles/bin/opener.py" "$HOME/Dropbox/Projects" $1 -w wptheme $2)"; }
 
 # Color conversion
 alias hex2hsl="color.js $1 $2"
@@ -783,7 +778,7 @@ function saySomething () {
 
 if test -d ~/repos;
   then
-  function repo () {
+  function rcd () {
     cd ~/repos/$1
   }
 
@@ -792,7 +787,7 @@ if test -d ~/repos;
     COMPREPLY=( $(compgen -W "$(ls ~/repos)" -- $cur) )
   }
 
-  complete -F _repos repo
+  complete -F _repos rcd
 fi
 
 alias update-bash="source ~/.bashrc"
@@ -803,3 +798,4 @@ command -v go && go jwerle;
 echo
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+alias wm="tmux -2 attach -t werle"
