@@ -804,3 +804,6 @@ echo
 
 
 export PATH="$PATH":~/repos/depot_tools
+alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
+# start server
+fw
