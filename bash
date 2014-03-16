@@ -253,6 +253,7 @@ alias +x="chmod +x"
 alias x+="chmod +x"
 alias g="ack -ri"
 alias kdns="killall -HUP mDNSResponder"
+alias startpostgres="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then  # GNU `ls`
@@ -798,10 +799,21 @@ command -v go && go jwerle;
 echo
 
 
-export PATH="$PATH":~/repos/depot_tools
+export PATH="$PATH:~/repos/depot_tools"
+export PATH="$PATH:~/repos/gyp"
+export PATH="$PATH:."
+export PATH="$PATH:./bin"
+export HOMEBREW_GITHUB_API_TOKEN="1d5ed174d878010142abd6b40a65251bea6d520c"
+
 alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
 # start server
 if test -d ~/hbui; then fw; fi;
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
+alias syncer="~/repos/adnxs/repo-syncer/syncer  ~/repos/adnxs/hbui/hbui/ jwerle.adnxs.net:hbui/hbui -e .git"
+alias tmux="TERM=screen-256color-bce tmux"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export TERM=xterm
