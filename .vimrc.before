@@ -1,0 +1,4 @@
+" general setup
+let mapleader = ","
+let g:mapleader = ","
+let &t_Co=256
