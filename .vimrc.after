@@ -1,0 +1,76 @@
+" globals
+let g:NERDTreeWinPos = "right"
+let g:JSHintHighlightErrorLine = 0
+let g:syntastic_c_include_dirs = [ "include", "deps" ]
+let g:syntastic_c_check_header = 1
+let g:syntastic_c_auto_refresh_includes = 1
+let g:calendar_google_calendar = 1
+let g:calendar_google_task = 1
+
+" nerdtree setup
+let NERDTreeShowBookmarks = 0
+let NERDChristmasTree = 1
+let NERDTreeHijackNetrw = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeChDirMode = 2
+let NERDTreeDirArrows = 0
+
+" map ESC
+imap jj <ESC>
+
+" switch between buffers
+noremap <tab> :bn<CR>
+noremap <S-tab> :bp<CR>
+
+" Saving and exit
+nmap <leader>q :q<CR>
+nmap <leader>w :w<CR>
+nmap <leader>d :bd<CR>
+
+noremap <leader>ww <NOP>
+
+" ctrl-p setup
+map <leader>p :CtrlP<cr>
+
+set guifont=Monaco:h12
+" Removes top toolbar
+set guioptions-=T
+" Removes right hand scroll bar
+set guioptions-=r
+" Removes left hand scroll bar
+set go-=L
+" puts a $ marker for the end of words/lines in cw/c$ commands
+set cpoptions+=$
+" Adds `./deps/**' to the local include path for C files
+set path+=./deps/**
+
+" plum theme
+set term=screen-256color
+set bg=dark
+colorscheme plum
+" displays <% %> correctly
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
+autocmd FileType js,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType js,c,cc,cpp,sly  match OverLength /\%81v.\+/
+
+" forward html syntax to ejs file
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.tmpl set filetype=html
+au BufNewFile,BufRead *.mu set filetype=html
+au BufNewFile,BufRead *.tpl set filetype=html
+
+" javascript syntax files
+au BufNewFile,BufRead *.pr set syntax=javascript
+au BufNewFile,BufRead *.pjs set syntax=javascript
+au BufNewFile,BufRead *.sly set syntax=javascript
+au BufNewFile,BufRead *.ash set syntax=javascript
+
+au BufNewFile,BufRead *.pr set filetype=javascript
+au BufNewFile,BufRead *.pjs set filetype=javascript
+
+au BufNewFile,BufRead *.ash set filetype=javascript
+
+" source local `./.vimrc' file
+if filereadable(glob("./.vimrc"))
+  source ./.vimrc
+endif
