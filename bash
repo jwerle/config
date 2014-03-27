@@ -804,7 +804,6 @@ export PATH="$PATH:~/repos/gyp"
 export PATH="$PATH:."
 export PATH="$PATH:./bin"
 export PATH="$PATH:~/bin"
-export HOMEBREW_GITHUB_API_TOKEN="1d5ed174d878010142abd6b40a65251bea6d520c"
 
 alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
 # start server
