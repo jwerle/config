@@ -48,6 +48,15 @@ set path+=./deps/**
 set term=screen-256color
 set bg=dark
 colorscheme plum
+
+" setup undo magic
+" make sure `~/tmp/vim/{backup,undo}' exists
+set undofile
+set undodir=~/tmp/vim/undo
+set undolevels=1000
+set undoreload=1000
+set backupdir=~/tmp/vim/backup
+
 " displays <% %> correctly
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
 autocmd FileType js,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
