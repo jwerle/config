@@ -200,6 +200,7 @@ alias apt="sudo apt-get"
 alias pac="sudo pacman"
 alias pak="sudo packer"
 alias dot_clean="find /home -name '._*' -exec rm {} \;"
+alias tf="time terraform"
 
 if [ $OS == "Darwin" -o $OS == "FreeBSD" ]; then
   alias ls="ls -hG"
@@ -263,7 +264,7 @@ else  # OS X `ls`
 fi
 
 # Always use color output for `ls`
-alias ls="command ls ${colorflag}"
+
 export LS_COLORS="no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.avi=01;35:*.fli=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.ogg=01;35:*.mp3=01;35:*.wav=01;35:"
 
 # Enable aliases to be sudo’ed
@@ -793,17 +794,12 @@ fi
 
 alias update-bash="source ~/.bashrc"
 
-# hop into go if we can
-command -v go && go jwerle;
-
-echo
-
-
 export PATH="$PATH:~/repos/depot_tools"
 export PATH="$PATH:~/repos/gyp"
-export PATH="$PATH:."
-export PATH="$PATH:./bin"
-export PATH="$PATH:~/bin"
+export PATH=".:$PATH"
+export PATH="./bin:$PATH"
+export PATH="~/bin:$PATH"
+export PATH="$PATH:/usr/local/bin"
 
 alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
 # start server
@@ -813,7 +809,10 @@ alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
 alias syncer="~/repos/adnxs/repo-syncer/syncer  ~/repos/adnxs/hbui/hbui/ jwerle.adnxs.net:hbui/hbui -e .git"
 alias tmux="TERM=screen-256color-bce tmux"
+alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias s3="s4cmd"
+alias yarni="yarn --ignore-engines"
+alias ffp='ffprobe -show_streams -show_format -print_format json'
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 export TERM=xterm

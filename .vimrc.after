@@ -1,11 +1,43 @@
 " globals
 let g:NERDTreeWinPos = "right"
 let g:JSHintHighlightErrorLine = 0
-let g:syntastic_c_include_dirs = [ "include", "deps" ]
-let g:syntastic_c_check_header = 1
+
+" Status line configuration
+set statusline+=%#warningmsg#  " Add Error ruler.
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+nnoremap <silent> ` :Errors<CR>
+
+" C Syntastic options
 let g:syntastic_c_auto_refresh_includes = 1
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
+let g:syntastic_c_include_dirs = [ "include", "deps", "build/include", "Headers", "headers", "build/Headers" ]
+let g:syntastic_c_check_header = 1
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+
+" Read the clang complete file
+let g:syntastic_objc_include_dirs = g:syntastic_c_include_dirs
+let g:syntastic_objc_config_file = '.clang_complete'
+
+" Disable auto completion, always <c-x> <c-o> to complete
+let g:clang_complete_auto = 0
+let g:clang_use_library = 1
+let g:clang_periodic_quickfix = 0
+let g:clang_close_preview = 1
+
+" For Objective-C, this needs to be active, otherwise multi-parameter methods won't be completed correctly
+let g:clang_snippets = 1
+
+" Snipmate does not work anymore, ultisnips is the recommended plugin
+let g:clang_snippets_engine = 'ultisnips'
+
+" This might change depending on your installation
+let g:clang_exec = '/usr/local/opt/llvm/bin/clang'
+let g:clang_library_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 
 " nerdtree setup
 let NERDTreeShowBookmarks = 0
@@ -78,6 +110,12 @@ au BufNewFile,BufRead *.pr set filetype=javascript
 au BufNewFile,BufRead *.pjs set filetype=javascript
 
 au BufNewFile,BufRead *.ash set filetype=javascript
+
+au BufNewFile,BufRead Servicefile set filetype=sh
+au BufNewFile,BufRead Servicefile set syntax=sh
+
+au BufNewFile,BufRead .npmignore set filetype=sh
+au BufNewFile,BufRead .npmignore set syntax=sh
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc"))
