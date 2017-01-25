@@ -1,0 +1,72 @@
+# vim: ft=dosini cms=#%s
+[options]
+resize_grip = true
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = true
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+#font = Iosevka 11
+font = Iosevka Term Slab Bold 16
+scrollback_lines = 5000
+search_wrap = true
+icon_name = terminal
+window_border = true
+
+# "system", "on" or "off"
+cursor_blink = off
+
+# "block", "underline" or "ibeam"
+cursor_shape = block
+
+# $BROWSER is used by default
+browser = xdg-open
+
+# word characters used for word selection
+# (default if unset: all graphic non-punctuation/space characters)
+word_chars = -A-Za-z0-9,./?%&#:_=+@~
+
+# set size hints for the window
+size_hints = false
+
+[colors]
+foreground_bold = #ffffff
+background = rgba(0, 0, 0, 0.8)
+foreground = #ababab
+cursor = #657b83
+
+# if unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# colors from color0 to color254 can be set
+color0 =     #000000
+color1 =     #9e1828
+color2 =     #aece92
+color3 =     #968a38
+color4 =     #414171
+color5 =     #963c59
+color6 =     #418179
+color7 =     #bebebe
+color8 =     #666666
+color9 =     #cf6171
+color10 =    #c5f779
+color11 =    #fff796
+color12 =    #4186be
+color13 =    #cf9ebe
+color14 =    #71bebe
+color15 =    #ffffff
+
+[hints]
+#font = Iosevka 11
+font = Iosevka Term Slab Bold 16
+#foreground = #dcdccc
+#background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+

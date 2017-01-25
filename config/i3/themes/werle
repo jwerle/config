@@ -1,0 +1,45 @@
+#vim: set syntax=conf
+set $FOCUS #989898
+set $UNFOCUS #3c3b37
+
+# Layout colors 	    bord 	bg 		text    indicator (split)
+client.focused 			$FOCUS $FOCUS $FOCUS $FOCUS
+client.focused_inactive $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
+client.background 		$UNFOCUS
+
+### Borders ###
+new_window pixel 0
+new_float pixel 0
+
+focus_follows_mouse no
+
+### Gaps ###
+set $default_gaps_inner 25
+set $default_gaps_outer 0
+smart_gaps on
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+## status bar
+bar {
+  position top
+  tray_output primary
+  status_command i3blocks
+  i3bar_command i3bar -t
+  strip_workspace_numbers yes
+
+  font pango:DejaVu Sans Mono, Awesome 8
+
+  colors {
+    background #002b37
+    statusline #CECECE
+    separator #2B2D45
+
+    focused_workspace #002b37 #002b37 #ffffff
+    active_workspace #002b37 #008ed4 #002b37 #003642 #008ed4
+    inactive_workspace #002b37 #819396 #002b37 #003642 #819396
+    urgent_workspace #002b37 #da4281 #002b37 #003642 #da4281
+  }
+}

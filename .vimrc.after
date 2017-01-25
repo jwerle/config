@@ -15,7 +15,7 @@ let g:syntastic_c_check_header = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_enable_signs = 1
 
@@ -116,6 +116,12 @@ au BufNewFile,BufRead Servicefile set syntax=sh
 
 au BufNewFile,BufRead .npmignore set filetype=sh
 au BufNewFile,BufRead .npmignore set syntax=sh
+
+au BufNewFile,BufRead .*vimrc* set filetype=vim
+au BufNewFile,BufRead .*vimrc* set syntax=vim
+
+au BufNewFile,BufRead .*conf* set filetype=conf
+au BufNewFile,BufRead .*conf* set syntax=conf
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc"))

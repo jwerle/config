@@ -1,0 +1,181 @@
+#vim: set syntax=conf
+# start a terminal
+bindsym $mod+Return exec termite -e tmux
+#bindsym $mod+Return exec alacritty
+
+# workspace switch
+bindsym $mod+space exec ~/.i3/scripts/i3_switch_workspace.sh
+bindsym $mod+Shift+n exec ~/.i3/scripts/i3_empty_workspace.sh
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+Shift+x layout stacking
+bindsym $mod+Shift+z layout tabbed
+bindsym $mod+Shift+v layout toggle split
+
+# focus the parent container
+#bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace "$ws1"
+bindsym $mod+2 workspace "$ws2"
+bindsym $mod+3 workspace "$ws3"
+bindsym $mod+4 workspace "$ws4"
+bindsym $mod+5 workspace "$ws5"
+bindsym $mod+6 workspace "$ws6"
+bindsym $mod+7 workspace "$ws7"
+bindsym $mod+8 workspace "$ws8"
+bindsym $mod+9 workspace "$ws9"
+bindsym $mod+0 workspace "$ws10"
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace "$ws1"
+bindsym $mod+Shift+2 move container to workspace "$ws2"
+bindsym $mod+Shift+3 move container to workspace "$ws3"
+bindsym $mod+Shift+4 move container to workspace "$ws4"
+bindsym $mod+Shift+5 move container to workspace "$ws5"
+bindsym $mod+Shift+6 move container to workspace "$ws6"
+bindsym $mod+Shift+7 move container to workspace "$ws7"
+bindsym $mod+Shift+8 move container to workspace "$ws8"
+bindsym $mod+Shift+9 move container to workspace "$ws9"
+bindsym $mod+Shift+0 move container to workspace "$ws10"
+
+## reload the configuration file
+bindsym $mod+Shift+c reload
+
+## restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+## exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## alt-tab to next workspace
+bindsym $mod+Tab workspace next
+
+## alt-tab to previous workspace
+bindsym $mod+Shift+Tab workspace prev
+
+## copy text with mod+c
+bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+
+## paste text with mod+v
+bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+v
+
+## select all text with mod+a
+bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
+
+## send ctrl+w
+bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
+
+## send ctrl+t
+bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
+
+## send ctrl+l
+bindsym --release $mod+l exec --no-startup-id xdotool key --clearmodifiers ctrl+l
+
+## send ctrl+k
+bindsym --release $mod+k exec --no-startup-id xdotool key --clearmodifiers ctrl+k
+
+## resizing
+bindsym $mod+Ctrl+l resize shrink width 5 px or 5 ppt
+bindsym $mod+Ctrl+k resize grow height 5 px or 5 ppt
+bindsym $mod+Ctrl+j resize shrink height 5 px or 5 ppt
+bindsym $mod+Ctrl+h resize grow width 5 px or 5 ppt
+
+## playback
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 1 sset 'Master' 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
+bindsym XF86AudioPlay exec --no-startup-id playcontrols toggle
+bindsym XF86AudioStop exec --no-startup-id playcontrols stop
+bindsym XF86AudioPrev exec --no-startup-id playcontrols prev
+bindsym XF86AudioNext exec --no-startup-id playcontrols next
+bindsym XF86Calculator exec --no-startup-id gnome-calculator
+
+## volume
+bindsym $mod+F12 exec --no-startup-id amixer -c 1 sset 'Master' 5%+
+bindsym $mod+F11 exec --no-startup-id amixer -c 1 sset 'Master' 5%-
+bindsym $mod+F10 exec --no-startup-id amixer sset 'Master' toggle
+
+bindsym $alt+Tab exec rofi -show window
+set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen
+bindsym $alt+d $execute
+
+# program shortcuts
+bindsym $mod+Shift+b exec google-chrome-stable
+bindsym $mod+Shift+s exec spotify
+
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}

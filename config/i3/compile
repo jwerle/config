@@ -1,0 +1,17 @@
+#!/bin/bash
+#vim: set syntax=sh:
+## usage: compile: [basedir]
+
+## basedir
+DIR="${1:-/home/werle/repos/config/config/i3}"
+
+## purge existing
+rm -f /home/werle/.config/i3/config
+
+## compose i3 config
+cat $DIR/config  \
+  $DIR/session   \
+  $DIR/bindsym   \
+  $DIR/theme     \
+  $DIR/exec      \
+ > /home/werle/.config/i3/config

@@ -1,0 +1,34 @@
+#vim: set syntax=conf
+
+## terminal
+set $ws1 1: &#xf120;
+
+## chrome
+set $ws2 2: &#xf268;
+
+## slack
+set $ws3 3: &#xf198;
+
+## hangouts
+set $ws4 4: &#xf075;
+
+## spotify
+set $ws5 5: &#xf1bc;
+
+for_window [class=".*"] title_format "<b>%title</b>"
+for_window [title="Google Hangouts"] move container to workspace "$ws4" resize 600px 400px
+for_window [window_role="pop-up"] floating enabled
+for_window [class="Termite"] floating enabled resize 800px 500px
+for_window [title="Spotify" class="Spotify"] move container to workspace "$ws5"
+for_window [class="Google-chrome"] floating enabled
+
+assign [class="Termite" title="Terminal"] "$ws1"
+assign [class="Google-chrome"] "$ws2"
+assign [class="Slack"] "$ws3"
+assign [class="Spotify"] "$ws5"
+
+## launch programs
+exec google-chrome-stable
+exec termite -e tmux
+exec spotify
+exec slack
