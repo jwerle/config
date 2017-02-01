@@ -783,7 +783,8 @@ if test -d ~/repos;
 
   function _repos () {
     local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(ls ~/repos)" -- $cur) )
+    local words="$({ ls --color=never ~/repos/$cur || ls --color=never ~/repos; } 2>/dev/null)"
+    COMPREPLY=( $(compgen -W "$words" -- $cur) )
   }
 
   complete -F _repos rcd
