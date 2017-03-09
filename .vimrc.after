@@ -39,6 +39,14 @@ let g:clang_snippets_engine = 'ultisnips'
 let g:clang_exec = '/usr/local/opt/llvm/bin/clang'
 let g:clang_library_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 
+" jsdoc
+let g:jsdoc_additional_descriptions = 1
+let g:jsdoc_access_descriptions = 1
+let g:jsdoc_enable_es6 = 1
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
 " nerdtree setup
 let NERDTreeShowBookmarks = 0
 let NERDChristmasTree = 1
@@ -91,8 +99,8 @@ set backupdir=~/tmp/vim/backup
 
 " displays <% %> correctly
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
-autocmd FileType js,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType js,c,cc,cpp,sly  match OverLength /\%81v.\+/
+autocmd FileType js,javascript,glsl,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
 
 " forward html syntax to ejs file
 au BufNewFile,BufRead *.ejs set filetype=html

@@ -1,7 +1,7 @@
-#vim: set syntax=conf
+# vim: set syntax=i3:
+
 # start a terminal
 bindsym $mod+Return exec termite -e tmux
-#bindsym $mod+Return exec alacritty
 
 # workspace switch
 bindsym $mod+space exec ~/.i3/scripts/i3_switch_workspace.sh

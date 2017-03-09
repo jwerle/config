@@ -1,0 +1,27 @@
+# vim: set syntax=i3:
+
+##
+# Slack workspace configutation.
+##
+
+##
+# Workspace icon.
+##
+set $ws3 3: &#xf198;
+
+##
+# Window configutation.
+##
+for_window [class=".*Slack.*"]        \
+  move container to workspace "$ws3"  \
+  resize set 1600px 900px             \
+
+##
+# Workspace assignment.
+##
+assign [class="Slack"] "$ws3"
+
+##
+# Launch program.
+##
+exec slack

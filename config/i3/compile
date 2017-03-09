@@ -1,17 +1,23 @@
 #!/bin/bash
-#vim: set syntax=sh:
-## usage: compile: [basedir]
+# vim: set syntax=sh:
+## usage: compile: [basedir] [outdir]
 
-## basedir
+## which config session to compile
+SESSION="${SESSION:-session}"
+
+## base dir
 DIR="${1:-/home/werle/repos/config/config/i3}"
 
+## out dir
+OUT=${2:-/home/werle/.config/i3/config}
+
 ## purge existing
-rm -f /home/werle/.config/i3/config
+rm -f $OUT
 
 ## compose i3 config
-cat $DIR/config  \
-  $DIR/session   \
-  $DIR/bindsym   \
-  $DIR/theme     \
-  $DIR/exec      \
- > /home/werle/.config/i3/config
+cat $DIR/config >> $OUT
+cat $DIR/$SESSION/config >> $OUT
+cat $DIR/$SESSION/*/* >> $OUT
+cat $DIR/bindsym >> $OUT
+cat $DIR/theme >> $OUT
+cat $DIR/exec >> $OUT

@@ -1,13 +1,13 @@
-#vim: set syntax=conf
-set $FOCUS #989898
-set $UNFOCUS #3c3b37
+# vim: set syntax=i3:
+set $FOCUS #0e3a47
+set $UNFOCUS #d2ebf2
 
-# Layout colors 	    bord 	bg 		text    indicator (split)
-client.focused 			$FOCUS $FOCUS $FOCUS $FOCUS
-client.focused_inactive $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
-client.background 		$UNFOCUS
+# Layout colors 	      bord 	    bg 		    text      indicator (split)
+client.focused 			    $FOCUS    $FOCUS    $FOCUS    $FOCUS
+client.focused_inactive $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
+client.unfocused 		    $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
+client.urgent 			    $FOCUS    $FOCUS    $FOCUS    $FOCUS
+client.background 		  $UNFOCUS
 
 ### Borders ###
 new_window pixel 0
@@ -33,13 +33,13 @@ bar {
   font pango:DejaVu Sans Mono, Awesome 8
 
   colors {
-    background #002b37
-    statusline #CECECE
-    separator #2B2D45
+    background #d2ebf2
+    statusline #0e3a47
+    separator #d2ebf2
 
-    focused_workspace #002b37 #002b37 #ffffff
-    active_workspace #002b37 #008ed4 #002b37 #003642 #008ed4
-    inactive_workspace #002b37 #819396 #002b37 #003642 #819396
-    urgent_workspace #002b37 #da4281 #002b37 #003642 #da4281
+    focused_workspace   #d2ebf2 #d2ebf2 #0e3a47
+    active_workspace    #d2ebf2 #d2ebf2 #0e3a47
+    inactive_workspace  #71b2c4 #a7c9d3 #0e3a47
+    urgent_workspace    #efb8cb #efb8cb #0e3a47
   }
 }

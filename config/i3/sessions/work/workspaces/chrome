@@ -1,0 +1,27 @@
+# vim: set syntax=i3:
+
+##
+# Google Chrome workspace configutation.
+##
+
+##
+# Workspace icon.
+##
+set $ws2 2: &#xf268;
+
+##
+# Window configutation.
+##
+for_window [class=".*Google-chrome.*"]  \
+  move container to workspace "$ws2"    \
+  resize set 1900px 1000px              \
+
+##
+# Workspace assignment.
+##
+assign [class="Google-chrome"] "$ws2"
+
+##
+# Launch program.
+##
+exec google-chrome-stable

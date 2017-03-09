@@ -1,0 +1,32 @@
+# vim: set syntax=i3:
+
+##
+# Terminal (Termite) workspace configutation.
+##
+
+##
+# Workspace assignments
+##
+set $ws1 1: &#xf120;
+
+##
+# Window configutation.
+##
+for_window [class=".*Termite.*"] \
+  resize set 1600px 900px        \
+
+##
+# Large terminal
+##
+for_window [workspace="$ws10" title=".*termite.*"] \
+  resize set 2400px 1250px
+
+##
+# Workspace assignment.
+##
+assign [class="Termite" title="Terminal"] "$ws1"
+
+##
+# Launch program.
+##
+exec termite -e tmux

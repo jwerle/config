@@ -1,9 +1,6 @@
 # set frame rate
 xset r rate 200 40 &
 
-# turn brightness down a 5%
-#xrandr --output VGA1 --brightness 0.95 &
-
 # launch mpd if not already running
 pgrep mpd &>/dev/null || mpd
 
@@ -18,10 +15,14 @@ xset +fp $HOME/.fonts
 xset fp rehash
 
 # set background image
-hsetroot -fill /home/werle/backgrounds/nyc-dark-blue.jpg
+hsetroot -fill /home/werle/backgrounds/beautiful-green-nature-surreal.jpg
 
 # compose i3 config
 /home/werle/repos/config/config/i3/compile
+
+ID=$(xinput list | grep TouchPad | awk '{print $6}' | tr -d 'id=' | xargs echo -n)
+xinput set-prop $ID "libinput Natural Scrolling Enabled" 1
+xinput set-prop $ID "libinput Tapping Enabled" 1
 
 # launch i3
 exec i3

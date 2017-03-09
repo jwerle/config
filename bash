@@ -1,25 +1,5 @@
-# if ping -c 1 "github.com" > /dev/null;
-#   then
-#   if ! test -d ~/repos; 
-#     then
-#     echo "Making repos directory in " $(cd ~ && pwd)
-#     mkdir ~/repos
-#   fi
+# vim: set syntax=sh:
 
-#   if ! test -d ~/repos/jwerle-config;
-#     then
-#     cd ~/repos && git clone git@github.com:jwerle/config.git jwerle-config
-#   fi
-
-#   if test -d ~/repos/jwerle-config;
-#     then
-#     echo "Updating config repo"
-#     sleep .003
-#     cd ~/repos/jwerle-config && git pull origin master 2> /dev/null && cd
-#     if ! test -f ~/.bashrc; then ln -s ~/repos/jwerle-config/bash ~/.bashrc; fi;
-#   fi;
-# fi;
-# Don't put duplicate lines in the history
 export HISTCONTROL=ignoreboth:erasedups
 
 # Set history length
@@ -790,6 +770,13 @@ if test -d ~/repos;
   complete -F _repos rcd
 fi
 
+if ! $(ps awx | grep ssh-agent) 2>/dev/null; then
+  eval $(ssh-agent) 2>/dev/null
+fi
+
+ssh-add
+ssh-add ~/.ssh/littlstar/*/*.pem
+
 alias update-bash="source ~/.bashrc"
 
 export PATH="$PATH:~/repos/depot_tools"
@@ -798,6 +785,7 @@ export PATH=".:$PATH"
 export PATH="./bin:$PATH"
 export PATH="~/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:~/node_modules/.bin"
 
 alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
 # start server
@@ -811,6 +799,7 @@ alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias s3="s4cmd"
 alias yarni="yarn --ignore-engines"
 alias ffp='ffprobe -show_streams -show_format -print_format json'
+alias ffpd='ffprobe -show_streams -show_format -print_format json -loglevel debug'
 
 ### Added by the Heroku Toolbelt
 export TERM=xterm

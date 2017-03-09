@@ -1,0 +1,29 @@
+# vim: set syntax=i3:
+
+##
+# Displays variables.
+##
+set $dp0 DP-0
+set $dp1 HDMI-0
+
+##
+# Workspace variables.
+##
+set $ws10 X
+
+##
+# Generic window configutation.
+##
+for_window [title=".*"] \
+  move position center  \
+  floating enable       \
+
+##
+# Display output assignments.
+##
+workspace "$ws1" output $dp0
+workspace "$ws2" output $dp0
+workspace "$ws3" output $dp0
+workspace "$ws4" output $dp0
+workspace "$ws5" output $dp0
+workspace "$ws10" output $dp1
