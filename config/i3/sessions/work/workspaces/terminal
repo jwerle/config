@@ -10,16 +10,25 @@
 set $ws1 1: &#xf120;
 
 ##
-# Window configutation.
+# Generic terminal
 ##
 for_window [class=".*Termite.*"] \
-  resize set 1600px 900px        \
+  resize set 1200px 800px        \
+  move position center           \
+
+##
+# Window configutation.
+##
+for_window [workspace="$ws1" class=".*Termite.*"] \
+  resize set 1600px 900px                         \
+  move position center                            \
 
 ##
 # Large terminal
 ##
-for_window [workspace="$ws10" title=".*termite.*"] \
-  resize set 2400px 1250px
+for_window [workspace="$ws10" class=".*Termite.*"] \
+  resize set 2400px 1250px                         \
+  move position center                             \
 
 ##
 # Workspace assignment.

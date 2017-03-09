@@ -12,14 +12,14 @@ set $ws2 2: &#xf268;
 ##
 # Window configutation.
 ##
-for_window [class=".*Google-chrome.*"]  \
-  move container to workspace "$ws2"    \
-  resize set 1900px 1000px              \
+for_window [class="Google-chrome" window_role="browser"]  \
+  move container to workspace "$ws2"                      \
+  resize set 1900px 1000px                                \
 
 ##
 # Workspace assignment.
 ##
-assign [class="Google-chrome"] "$ws2"
+assign [class="Google-chrome" window_role="browser"] "$ws2"
 
 ##
 # Launch program.

@@ -14,9 +14,10 @@ set $ws10 X
 ##
 # Generic window configutation.
 ##
-for_window [title=".*"] \
-  move position center  \
-  floating enable       \
+for_window [class=".*"]    \
+  floating enable          \
+  move position center     \
+  resize set 1600px 900px  \
 
 ##
 # Display output assignments.

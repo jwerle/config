@@ -12,14 +12,14 @@ set $ws4 4: &#xf075;
 ##
 # Window configutation.
 ##
-for_window [title=".*Google Hangouts.*"] \
-  move container to workspace "$ws4"     \
-  resize set 1600px 900px                \
+for_window [title=".*Google Hangouts.*" window_role="pop-up"] \
+  move container to workspace "$ws4"                          \
+  resize set 1600px 900px                                     \
 
 ##
 # Workspace assignment.
 ##
-assign [title=".*Google Hangouts.*"] "$ws4"
+assign [title=".*Google Hangouts.*" window_role="pop=up"] "$ws4"
 
 ##
 # Launch program.

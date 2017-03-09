@@ -60,7 +60,7 @@ else:
     def color(percent):
         if percent < 10:
             # exit code 33 will turn background red
-            return "#FFFFFF"
+            return "#0e3a47"
         if percent < 20:
             return "#FF3300"
         if percent < 30:
@@ -75,7 +75,7 @@ else:
             return "#FFFF33"
         if percent < 80:
             return "#FFFF66"
-        return "#FFFFFF"
+        return "#0e3a47"
 
     form =  '<span color="{}">{}%</span>'
     fulltext += form.format(color(percentleft), percentleft)

@@ -7,7 +7,7 @@ set $alt Mod1
 set $mod Mod4
 
 ## UI font family
-font pango:Roboto, 12
+font pango:Roboto, 14
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
