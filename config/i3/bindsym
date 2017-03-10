@@ -125,13 +125,18 @@ bindsym $mod+Ctrl+j resize shrink height 5 px or 5 ppt
 bindsym $mod+Ctrl+h resize grow width 5 px or 5 ppt
 
 ## playback
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 5%-
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer sset 'Master' toggle
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioStop exec --no-startup-id playerctl stop
-bindsym XF86AudioPrev exec --no-startup-id playerctl prev
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+bindsym $mod+KP_Up exec --no-startup-id amixer sset 'Master' 5%+
+bindsym $mod+KP_Down exec --no-startup-id amixer sset 'Master' 5%-
+bindsym $mod+KP_Right exec --no-startup-id playerctl next
+bindsym $mod+KP_Left exec --no-startup-id playerctl previous
 
 ## volume
 bindsym $mod+F12 exec --no-startup-id amixer -c 1 sset 'Master' 5%+
