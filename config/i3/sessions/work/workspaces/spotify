@@ -15,6 +15,7 @@ set $ws5 5: &#xf1bc;
 for_window [class=".*Spotify.*"]     \
   move container to workspace "$ws5" \
   resize set 1600px 900px            \
+  floating enable                    \
 
 ##
 # Workspace assignment.

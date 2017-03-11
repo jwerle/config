@@ -15,6 +15,7 @@ set $ws2 2: &#xf268;
 for_window [class="Google-chrome" window_role="browser"]  \
   move container to workspace "$ws2"                      \
   resize set 1900px 1000px                                \
+  floating enable                                         \
 
 ##
 # Workspace assignment.

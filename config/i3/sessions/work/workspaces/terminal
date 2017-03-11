@@ -15,6 +15,7 @@ set $ws1 1: &#xf120;
 for_window [class=".*Termite.*"] \
   resize set 1200px 800px        \
   move position center           \
+  floating enable                \
 
 ##
 # Window configutation.
@@ -27,7 +28,7 @@ for_window [workspace="$ws1" class=".*Termite.*"] \
 # Large terminal
 ##
 for_window [workspace="$ws10" class=".*Termite.*"] \
-  resize set 2400px 1250px                         \
+  resize set 1900px 1000px                         \
   move position center                             \
 
 ##

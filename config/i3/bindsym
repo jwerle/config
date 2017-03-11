@@ -42,15 +42,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+s+e split h
+bindsym $mod+s+x split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+x layout stacking
-bindsym $mod+Shift+z layout tabbed
-bindsym $mod+Shift+v layout toggle split
+bindsym $mod+Shift+KP_Add floating toggle, move position center
+bindsym $mod+Shift+KP_Divide layout toggle split
+bindsym $mod+Shift+KP_Multiply layout tabbed
+bindsym $mod+Shift+KP_Subtract layout stacking
+bindsym $mod+Shift+space move position center
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -97,26 +100,9 @@ bindsym $mod+Tab workspace next
 ## alt-tab to previous workspace
 bindsym $mod+Shift+Tab workspace prev
 
-## copy text with mod+c
-bindsym --release $mod+c exec --no-startup-id xdotool key --clearmodifiers ctrl+c
-
-## paste text with mod+v
-bindsym --release $mod+v exec --no-startup-id xdotool key --clearmodifiers ctrl+shift+v
-
-## select all text with mod+a
-bindsym --release $mod+a exec --no-startup-id xdotool key --clearmodifiers ctrl+a
-
-## send ctrl+w
-bindsym --release $mod+w exec --no-startup-id xdotool key --clearmodifiers ctrl+w
-
-## send ctrl+t
-bindsym --release $mod+t exec --no-startup-id xdotool key --clearmodifiers ctrl+t
-
-## send ctrl+l
-bindsym --release $mod+l exec --no-startup-id xdotool key --clearmodifiers ctrl+l
 
 ## send ctrl+k
-bindsym --release $mod+k exec --no-startup-id xdotool key --clearmodifiers ctrl+k
+#bindsym --release $mod+k exec --no-startup-id xdotool key --clearmodifiers ctrl+k
 
 ## resizing
 bindsym $mod+Ctrl+l resize shrink width 5 px or 5 ppt

@@ -24,5 +24,8 @@ ID=$(xinput list | grep TouchPad | awk '{print $6}' | tr -d 'id=' | xargs echo -
 xinput set-prop $ID "libinput Natural Scrolling Enabled" 1
 xinput set-prop $ID "libinput Tapping Enabled" 1
 
+# launch libinput
+exec libinput-gestures
+
 # launch i3
 exec i3

@@ -9,8 +9,9 @@ exec --no-startup-id compton -bc --config ~/.config/compton.conf
 ## init conky
 exec --no-startup-id conky -c ~/.config/panel/empty_conky
 
+## init xautolock
+exec xautolock -time 10 -locker i3lock-fancy
+
 ## init mpd
 exec --no-startup-id mpd
 
-## init xautolock
-exec xautolock -time 10 -locker i3lock-fancy

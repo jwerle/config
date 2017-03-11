@@ -15,6 +15,7 @@ set $ws3 3: &#xf198;
 for_window [class=".*Slack.*"]        \
   move container to workspace "$ws3"  \
   resize set 1600px 900px             \
+  floating enable                     \
 
 ##
 # Workspace assignment.
