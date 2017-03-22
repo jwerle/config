@@ -777,8 +777,6 @@ fi
 ssh-add
 ssh-add ~/.ssh/littlstar/*/*.pem
 
-alias update-bash="source ~/.bashrc"
-
 export PATH="$PATH:~/repos/depot_tools"
 export PATH="$PATH:~/repos/gyp"
 export PATH=".:$PATH"
@@ -786,10 +784,7 @@ export PATH="./bin:$PATH"
 export PATH="~/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:~/node_modules/.bin"
-
-alias fw="\$(cd ~/hbui/hbui/v2/framework2/tools/fw && npm start > /dev/null 2>&1)"
-# start server
-if test -d ~/hbui; then fw; fi;
+export PATH="$PATH:./node_modules/.bin"
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"

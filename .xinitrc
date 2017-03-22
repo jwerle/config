@@ -1,3 +1,5 @@
+# vim: set syntax=sh:
+
 # set frame rate
 xset r rate 200 40 &
 
@@ -25,7 +27,7 @@ xinput set-prop $ID "libinput Natural Scrolling Enabled" 1
 xinput set-prop $ID "libinput Tapping Enabled" 1
 
 # launch libinput
-exec libinput-gestures
+libinput-gestures &
 
 # launch i3
 exec i3
