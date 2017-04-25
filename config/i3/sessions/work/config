@@ -24,6 +24,12 @@ for_window [             \
   floating enable        \
 
 ##
+# sView
+for_window [class="sView"] \
+  move position center     \
+  floating enable          \
+
+##
 # Display output assignments.
 ##
 workspace "$ws1" output $dp0

@@ -15,6 +15,10 @@ scrollback_lines = 10000
 search_wrap = true
 icon_name = terminal
 window_border = true
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+
 
 # "system", "on" or "off"
 cursor_blink = off

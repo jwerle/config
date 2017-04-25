@@ -28,9 +28,11 @@ for option in autocd globstar; do
 done
 
 # Locale
+#export LC_ALL=es_ES.UTF-8
+#export LANG="es_ES"
+
 export LC_ALL=en_US.UTF-8
 export LANG="en_US"
-
 
 # Prepend $PATH without duplicates
 function _prepend_path() {

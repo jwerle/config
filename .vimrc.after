@@ -72,7 +72,7 @@ noremap <leader>ww <NOP>
 " ctrl-p setup
 map <leader>p :CtrlP<cr>
 
-set guifont=Monaco:h12
+set guifont=Roboto:h12
 " Removes top toolbar
 set guioptions-=T
 " Removes right hand scroll bar
@@ -130,6 +130,9 @@ au BufNewFile,BufRead .*vimrc* set syntax=vim
 
 au BufNewFile,BufRead .*conf* set filetype=conf
 au BufNewFile,BufRead .*conf* set syntax=conf
+
+au BufNewFile,BufRead .babelrc set filetype=json
+au BufNewFile,BufRead .babelrc set syntax=json
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc"))
