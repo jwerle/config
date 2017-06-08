@@ -15,3 +15,5 @@ exec xautolock -time 10 -locker i3lock-fancy
 ## init mpd
 exec --no-startup-id mpd
 
+## init nitrogen
+exec --no-startup-id nitrogen --restore

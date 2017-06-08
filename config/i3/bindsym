@@ -3,10 +3,6 @@
 # start a terminal
 bindsym $mod+Return exec termite -e tmux
 
-# workspace switch
-bindsym $mod+space exec ~/.i3/scripts/i3_switch_workspace.sh
-bindsym $mod+Shift+n exec ~/.i3/scripts/i3_empty_workspace.sh
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -30,16 +26,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+h move left 10 px
+bindsym $mod+Shift+j move down 10 px
+bindsym $mod+Shift+k move up 10 px
+bindsym $mod+Shift+l move right 10 px
 
 # split in horizontal orientation
 bindsym $mod+s+e split h
@@ -53,7 +43,12 @@ bindsym $mod+Shift+KP_Add floating toggle, move position center
 bindsym $mod+Shift+KP_Divide layout toggle split
 bindsym $mod+Shift+KP_Multiply layout tabbed
 bindsym $mod+Shift+KP_Subtract layout stacking
+
 bindsym $mod+Shift+space move position center
+bindsym $mod+Shift+Left move position 0 px 50 px
+bindsym $mod+Shift+Right move position right
+bindsym $mod+Shift+Up move position top
+bindsym $mod+Shift+Down move position bottom
 
 # focus the parent container
 #bindsym $mod+a focus parent
@@ -130,8 +125,8 @@ bindsym $mod+F11 exec --no-startup-id amixer -c 1 sset 'Master' 5%-
 bindsym $mod+F10 exec --no-startup-id amixer sset 'Master' toggle
 
 bindsym $alt+Tab exec rofi -show window
-set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen
-bindsym $alt+d $execute
+set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen -matching fuzzy -fake-transparency -fake-background
+bindsym $mod+space $execute
 
 # program shortcuts
 bindsym $mod+Shift+b exec google-chrome-stable

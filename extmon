@@ -4,7 +4,7 @@
 ## n - Script to turn on/off an external monitor using XRandR
 
 XRANDR=$(which xrandr)
-MAIN=DP-0
+MAIN=${MAIN:-DP-0}
 SECONDARY=$(xrandr | grep HDMI | grep connected | awk '{print $1}' | tr -d '\n')
 
 ## args

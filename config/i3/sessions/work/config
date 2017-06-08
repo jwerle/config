@@ -3,8 +3,10 @@
 ##
 # Displays variables.
 ##
-set $dp0 DP-0
-set $dp1 HDMI-0
+set $dp0 eDP-1
+set $dp1 DP-1
+set $dp2 HDMI-1
+set $dp3 HDMI-2
 
 ##
 # Workspace variables.
@@ -29,6 +31,30 @@ for_window [class="sView"] \
   move position center     \
   floating enable          \
 
+for_window [window_type="menu"] \
+  move position center          \
+  floating enable               \
+
+for_window [window_role="pop-up"] \
+  move position center            \
+  floating enable                 \
+
+for_window [window_role="bubble"] \
+  move position center            \
+  floating enable                 \
+
+for_window [window_type="dialog"] \
+  move position center            \
+  floating enable                 \
+
+for_window [window_role="task_dialog"] \
+  floating enable                      \
+  move position center                 \
+
+for_window [window_role="Preferences"] \
+  move position center                 \
+  floating enable                      \
+
 ##
 # Display output assignments.
 ##
@@ -38,3 +64,6 @@ workspace "$ws3" output $dp0
 workspace "$ws4" output $dp0
 workspace "$ws5" output $dp0
 workspace "$ws10" output $dp1
+
+floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1

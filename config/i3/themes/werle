@@ -1,6 +1,9 @@
 # vim: set syntax=i3:
 set $FOCUS #0e3a47
 set $UNFOCUS #d2ebf2
+set $black #282828
+set $darkblack #1d2021
+set $transparent #00000000
 
 # Layout colors 	      bord 	    bg 		    text      indicator (split)
 client.focused 			    $FOCUS    $FOCUS    $FOCUS    $FOCUS
@@ -14,28 +17,33 @@ new_window pixel 0
 new_float pixel 0
 
 focus_follows_mouse no
+hide_edge_borders both
 
 ### Gaps ###
 set $default_gaps_inner 25
-set $default_gaps_outer 0
+set $default_gaps_outer 5
 smart_gaps on
+smart_borders on
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
 ## status bar
 bar {
-  position top
+  position bottom
+  mode dock
   tray_output primary
+  tray_padding 0
   status_command i3blocks
   i3bar_command i3bar -t
   strip_workspace_numbers yes
+  height 30
 
-  font pango:DejaVu Sans Mono, Awesome 8
+  font pango:DejaVu Sans Mono, Awesome 12
 
   colors {
     background #d2ebf2
     statusline #0e3a47
-    separator #d2ebf2
+    separator $transparent
 
     focused_workspace   #d2ebf2 #d2ebf2 #0e3a47
     active_workspace    #d2ebf2 #d2ebf2 #0e3a47
