@@ -1,5 +1,8 @@
 # vim: set syntax=i3:
 
+## start polybar
+exec_always --no-startup-id /home/werle/bin/start-polybar
+
 ## set up fonts
 exec --no-startup-id mkfontdir ~/.local/share/fonts && xset +fp ~/.local/share/fonts && xset fp rehash && ~/.config/panel/bar_config
 

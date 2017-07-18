@@ -87,7 +87,13 @@ set path+=./deps/**
 " plum theme
 set term=screen-256color
 set bg=dark
-colorscheme plum
+"colorscheme plum
+"colorscheme zazen
+colorscheme hybrid_material
+
+" make transparent background
+highlight Normal ctermbg=none
+highlight NonText ctermbg=none
 
 " setup undo magic
 " make sure `~/tmp/vim/{backup,undo}' exists
@@ -102,11 +108,9 @@ autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
 autocmd FileType js,javascript,glsl,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
 
-" forward html syntax to ejs file
-au BufNewFile,BufRead *.ejs set filetype=html
-au BufNewFile,BufRead *.tmpl set filetype=html
-au BufNewFile,BufRead *.mu set filetype=html
-au BufNewFile,BufRead *.tpl set filetype=html
+au BufNewFile,BufRead *.ejs,*.tmpl,*.mu,*.tpl,*.xhtml set filetype=html
+
+au BufNewFile,BufRead .netrc set filetype=netrc
 
 au BufNewFile,BufRead Servicefile set filetype=sh
 au BufNewFile,BufRead Servicefile set syntax=sh

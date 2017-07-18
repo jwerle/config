@@ -7,14 +7,14 @@
 ##
 # Workspace icon.
 ##
-set $ws3 3: &#xf198;
+set $ws3 3: 
 
 ##
 # Window configutation.
 ##
 for_window [class=".*Slack.*"]        \
   move container to workspace "$ws3"  \
-  resize set 1600px 900px             \
+  resize set 2800px 1400px             \
   floating enable                     \
 
 ##
@@ -25,4 +25,4 @@ assign [class="Slack"] "$ws3"
 ##
 # Launch program.
 ##
-exec slack
+exec slack --force-device-scale-factor=$device_scale_factor

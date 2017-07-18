@@ -11,7 +11,9 @@ set $dp3 HDMI-2
 ##
 # Workspace variables.
 ##
-set $ws10 X
+set $ws10 10: X
+
+set $device_scale_factor 1.7
 
 ##
 # Generic window configutation.

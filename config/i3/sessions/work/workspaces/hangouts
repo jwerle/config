@@ -7,14 +7,14 @@
 ##
 # Workspace assignments
 ##
-set $ws4 4: &#xf075;
+set $ws4 4: 
 
 ##
 # Window configutation.
 ##
 for_window [title=".*Google Hangouts.*" window_role="pop-up"] \
   move container to workspace "$ws4"                          \
-  resize set 1600px 900px                                     \
+  resize set 2800px 1400px                                    \
   floating enable                                             \
 
 ##

@@ -7,14 +7,14 @@
 ##
 # Workspace assignments
 ##
-set $ws5 5: &#xf1bc;
+set $ws5 5: 
 
 ##
 # Window configutation.
 ##
 for_window [class=".*Spotify.*"]     \
   move container to workspace "$ws5" \
-  resize set 1600px 900px            \
+  resize set 2800px 1400px            \
   floating enable                    \
 
 ##
@@ -25,4 +25,4 @@ assign [class="Spotify"] "$ws5"
 ##
 # Launch program.
 ##
-exec spotify
+exec spotify --force-device-scale-factor=$device_scale_factor

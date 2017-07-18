@@ -10,15 +10,14 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Term Slab Bold 16
+font = Iosevka Term Slab Bold 20
 scrollback_lines = 10000
 search_wrap = true
 icon_name = terminal
 window_border = true
 border = #3f3f3f
 border_width = 0.5
-roundness = 2.0
-
+roundness = 20.0
 
 # "system", "on" or "off"
 cursor_blink = off
@@ -38,7 +37,7 @@ size_hints = false
 
 [colors]
 foreground_bold = #ffffff
-background = rgba(0, 0, 0, 0.8)
+background = rgba(0, 0, 0, 0.9)
 foreground = #ababab
 cursor = #657b83
 
@@ -62,14 +61,3 @@ color12 =    #4186be
 color13 =    #cf9ebe
 color14 =    #71bebe
 color15 =    #ffffff
-
-[hints]
-#font = Iosevka 11
-font = Iosevka Term Slab Bold 16
-#foreground = #dcdccc
-#background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
-

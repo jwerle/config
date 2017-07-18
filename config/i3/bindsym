@@ -45,8 +45,8 @@ bindsym $mod+Shift+KP_Multiply layout tabbed
 bindsym $mod+Shift+KP_Subtract layout stacking
 
 bindsym $mod+Shift+space move position center
-bindsym $mod+Shift+Left move position 0 px 50 px
-bindsym $mod+Shift+Right move position right
+bindsym $mod+Shift+Left move position 0 px 80 px, resize 50%
+bindsym $mod+Shift+Right move position
 bindsym $mod+Shift+Up move position top
 bindsym $mod+Shift+Down move position bottom
 
@@ -131,6 +131,9 @@ bindsym $mod+space $execute
 # program shortcuts
 bindsym $mod+Shift+b exec google-chrome-stable
 bindsym $mod+Shift+s exec spotify
+bindsym $mod+h exec termite -e htop
+bindsym $mod+Shift+d exec termite -e 'dmesg -w'
+bindsym $mod+Shift+v exec termite -e 'alsamixer'
 
 bindsym $mod+Shift+g mode "$mode_gaps"
 
@@ -153,6 +156,7 @@ mode "$mode_gaps_inner" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
         bindsym minus gaps outer current minus 5

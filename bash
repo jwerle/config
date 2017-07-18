@@ -787,6 +787,7 @@ export PATH="~/bin:$PATH"
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:~/node_modules/.bin"
 export PATH="$PATH:./node_modules/.bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"

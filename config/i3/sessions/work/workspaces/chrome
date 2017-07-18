@@ -7,14 +7,14 @@
 ##
 # Workspace icon.
 ##
-set $ws2 2:  
+set $ws2 2: 
 
 ##
 # Window configutation.
 ##
 for_window [class="Google-chrome" window_role="browser"]  \
   move container to workspace "$ws2"                      \
-  resize set 1900px 1000px                                \
+  resize set 3000px 1600px                                \
   floating enable                                         \
 
 ##
@@ -25,4 +25,4 @@ assign [class="Google-chrome" window_role="browser"] "$ws2"
 ##
 # Launch program.
 ##
-exec google-chrome-stable
+exec google-chrome-stable --force-device-scale-factor=$device_scale_factor

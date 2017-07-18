@@ -20,7 +20,7 @@ focus_follows_mouse no
 hide_edge_borders both
 
 ### Gaps ###
-set $default_gaps_inner 25
+set $default_gaps_inner 10
 set $default_gaps_outer 5
 smart_gaps on
 smart_borders on
@@ -28,26 +28,27 @@ gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
 ## status bar
-bar {
-  position bottom
-  mode dock
-  tray_output primary
-  tray_padding 0
-  status_command i3blocks
-  i3bar_command i3bar -t
-  strip_workspace_numbers yes
-  height 30
+#bar {
+  #position bottom
+  #mode dock
+  #tray_output primary
+  #tray_padding 0
+  #status_command i3blocks
+  ##i3bar_command i3bar -t
+  #i3bar_command polybar
+  #strip_workspace_numbers yes
+  #height 30
 
-  font pango:DejaVu Sans Mono, Awesome 12
+  #font pango:DejaVu Sans Mono, Awesome 12
 
-  colors {
-    background #d2ebf2
-    statusline #0e3a47
-    separator $transparent
+  #colors {
+    #background #d2ebf2
+    #statusline #0e3a47
+    #separator $transparent
 
-    focused_workspace   #d2ebf2 #d2ebf2 #0e3a47
-    active_workspace    #d2ebf2 #d2ebf2 #0e3a47
-    inactive_workspace  #71b2c4 #a7c9d3 #0e3a47
-    urgent_workspace    #efb8cb #efb8cb #0e3a47
-  }
-}
+    #focused_workspace   #d2ebf2 #d2ebf2 #0e3a47
+    #active_workspace    #d2ebf2 #d2ebf2 #0e3a47
+    #inactive_workspace  #71b2c4 #a7c9d3 #0e3a47
+    #urgent_workspace    #efb8cb #efb8cb #0e3a47
+  #}
+#}

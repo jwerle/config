@@ -22,6 +22,7 @@ hsetroot -fill /home/werle/backgrounds/split.jpg
 
 # compose i3 config
 /home/werle/repos/config/config/i3/compile
+/home/werle/repos/config/config/i3/polybar/run
 
 ID=$(xinput list | grep TouchPad | awk '{print $6}' | tr -d 'id=' | xargs echo -n)
 xinput set-prop $ID "libinput Natural Scrolling Enabled" 1
