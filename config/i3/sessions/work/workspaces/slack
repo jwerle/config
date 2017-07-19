@@ -17,6 +17,11 @@ for_window [class=".*Slack.*"]        \
   resize set 2800px 1400px             \
   floating enable                     \
 
+for_window [title=".*Slack.*" window_role="pop-up"]        \
+  move container to workspace "$ws3"  \
+  resize set 2800px 1400px             \
+  floating enable                     \
+
 ##
 # Workspace assignment.
 ##
@@ -25,4 +30,4 @@ assign [class="Slack"] "$ws3"
 ##
 # Launch program.
 ##
-exec slack --force-device-scale-factor=$device_scale_factor
+exec google-chrome-stable --app=https://littlstar.slack.com --force-device-scale-factor=$device_scale_factor
