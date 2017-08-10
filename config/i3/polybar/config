@@ -12,38 +12,81 @@
 margin-top = 5
 margin-bottom = 5
 
-[bar/bottom]
+;=== Top Bar ===;
+[bar/top]
+monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 60
+offset-x = 0
+padding-left = 5
+padding-right = 5
 
+background = #111111
+foreground = #888888
+
+font-0 = Source Sans Pro:pixelsize=18;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=14;0
+font-3 = FontAwesome:pixelsize=18;0
+
+modules-left = pacman-update launcher
+modules-right = volume wireless-network battery temperature cpu memory
+
+override-redirect = true
+wm-restack = i3
+
+;=== Top Bar (Secondary)===;
+[bar/top-secondary]
+monitor = ${env:MONITOR:HDMI-2}
+width = 100%
+height = 60
+offset-x = 0
+padding-left = 5
+padding-right = 5
+
+background = #111111
+foreground = #888888
+
+font-0 = Source Sans Pro:pixelsize=18;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=14;0
+font-3 = FontAwesome:pixelsize=18;0
+
+modules-left = music
+modules-right = battery temperature cpu memory date wireless-network
+
+override-redirect = true
+wm-restack = i3
+
+;=== Bottom Bar ===;
+[bar/bottom]
 monitor = ${env:MONITOR:eDP-1}
 width = 100%
 height = 60
 offset-x = 0
 offset-y = 0
+spacing = 1
+;padding-left = 5
+;padding-right = 5
 
 bottom = true
 
 background = #00000000
 foreground = #888888
 
-spacing = 1
-;padding-left = 4
-;padding-right = 4
-module-margin-left = 1
-module-margin-right = 10
-
-font-0 = hack:heavy:pixelsize=32;1
-font-1 = unifont:size=6:heavy:fontformat=truetype;-2
+font-0 = hack:heavy:pixelsize=18;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=32;0
+font-3 = FontAwesome:pixelsize=24;0
 
-modules-left =
+modules-left = music
 modules-center = i3
-modules-right =
+modules-right = date
 
 tray-transparent = true
 tray-position = right
 tray-padding = 0
-tray-maxsize = 200
+tray-maxsize = 25
 tray-scale = 1
 
 override-redirect = true
@@ -51,31 +94,6 @@ wm-restack = i3
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
-[bar/top]
-monitor = ${env:MONITOR:eDP-1}
-width = 100%
-height = 50
-offset-x = 0
-;offset-y = 5
-padding-top = 15
-padding-bottom = 10
-padding-left = 5
-padding-right = 5
-
-background = #111111
-foreground = #888888
-
-font-0 = Source Sans Pro:pixelsize=14;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=18;0
-
-modules-left = pacman-update temperature cpu memory
-modules-right = music volume wireless-network battery date
-
-override-redirect = true
-wm-restack = i3
 
 [module/i3]
 type = internal/i3
@@ -102,11 +120,11 @@ label-urgent-padding = 1
 [module/date]
 type = internal/date
 interval = 5
-date = "%m/%d/%y"
+date = "%B %d, %Y"
 date-alt = " %d"
-time = " %H:%M:%S"
+time = " %H:%M"
 time-alt =  %H:%M
-label = "%date% %time%"
+label = "  %date%    %time%"
 label-margin-left = 4
 
 [module/volume]
@@ -162,13 +180,42 @@ label-disconnected = "Not connected"
 label-disconnected-foreground = #66ffffff
 label-disconnected-margin-left = 4
 
+[module/launcher]
+type = custom/menu
+label-open = " "
+label-close = "   "
+label-separator = "  "
+label-open-foreground = #4d6b9b
+margin-right = 4
+
+menu-0-0 = ""
+menu-0-0-foreground = #fefefe
+menu-0-0-exec = termite -e tmux -t Terminal
+
+menu-0-1 = ""
+menu-0-1-foreground = #399de5
+menu-0-1-exec = google-chrome-stable --force-device-scale-factor=2
+
+menu-0-2 = ""
+menu-0-2-foreground = #5ca835
+menu-0-2-exec = spotify --force-device-scale-factor=2
+
+menu-0-3 = ""
+menu-0-3-foreground = #ffffff
+menu-0-3-exec = slack --force-device-scale-factor=2
+
+menu-0-4 = ""
+menu-0-4-foreground = #ffffff
+menu-0-4-exec = google-chrome-stable --force-device-scale-factor=2 https://github.com
+
+
 [module/memory]
 type = internal/memory
 label = " %gb_used%/%gb_free%"
-label-margin-right = 4
+label-margin-left = 4
 
 [module/cpu]
-label-margin-right = 4
+label-margin-left = 4
 type = internal/cpu
 format = <label>
 label = " %percentage%%"
@@ -179,7 +226,7 @@ interval = 0.5
 thermal-zone = 0
 warn-temperature = 60
 label = " %temperature%"
-label-margin-right = 4
+label-margin-left = 4
 
 [module/battery]
 label-margin-left = 4
@@ -249,11 +296,11 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 [module/music]
-label-padding = 2
+;label-padding = 2
 label-margin-left = 4
 type = custom/script
 interval = 2
-label = "%output:0:60:...%"
+label = " %output:0:25:...%"
 exec = ~/repos/config/config/i3/blocks/playerctl
 
 [module/pacman-update]

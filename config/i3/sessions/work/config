@@ -13,7 +13,7 @@ set $dp3 HDMI-2
 ##
 set $ws10 10: X
 
-set $device_scale_factor 1.7
+set $device_scale_factor 1.8
 
 ##
 # Generic window configutation.

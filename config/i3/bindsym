@@ -3,6 +3,9 @@
 # start a terminal
 bindsym $mod+Return exec termite -e tmux
 
+# jump into a node shell
+bindsym $mod+Shift+n exec termite -e node
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -129,8 +132,6 @@ set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen -matching fuzzy 
 bindsym $mod+space $execute
 
 # program shortcuts
-bindsym $mod+Shift+b exec google-chrome-stable
-bindsym $mod+Shift+s exec spotify
 bindsym $mod+h exec termite -e htop
 bindsym $mod+Shift+d exec termite -e 'dmesg -w'
 bindsym $mod+Shift+v exec termite -e 'alsamixer'

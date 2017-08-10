@@ -3,6 +3,7 @@
 ##
 # Google Chrome workspace configutation.
 ##
+set $chrome_stable google-chrome-stable
 
 ##
 # Workspace icon.
@@ -25,4 +26,6 @@ assign [class="Google-chrome" window_role="browser"] "$ws2"
 ##
 # Launch program.
 ##
-exec google-chrome-stable --force-device-scale-factor=$device_scale_factor
+set $exec_chrome exec google-chrome-stable --force-device-scale-factor=2
+bindsym $mod+Shift+b $exec_chrome
+$exec_chrome
