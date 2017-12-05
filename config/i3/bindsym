@@ -1,11 +1,5 @@
 # vim: set syntax=i3:
 
-# start a terminal
-bindsym $mod+Return exec termite -e tmux
-
-# jump into a node shell
-bindsym $mod+Shift+n exec termite -e node
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -117,6 +111,10 @@ bindsym XF86AudioStop exec --no-startup-id playerctl stop
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
+## backlight
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+
 bindsym $mod+KP_Up exec --no-startup-id amixer sset 'Master' 5%+
 bindsym $mod+KP_Down exec --no-startup-id amixer sset 'Master' 5%-
 bindsym $mod+KP_Right exec --no-startup-id playerctl next
@@ -132,11 +130,12 @@ set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen -matching fuzzy 
 bindsym $mod+space $execute
 
 # program shortcuts
+bindsym $mod+Return exec termite -e tmux
+bindsym $mod+Shift+n exec termite -e node
+bindsym $mod+Shift+g exec termite -e gtop
 bindsym $mod+h exec termite -e htop
 bindsym $mod+Shift+d exec termite -e 'dmesg -w'
 bindsym $mod+Shift+v exec termite -e 'alsamixer'
-
-bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"

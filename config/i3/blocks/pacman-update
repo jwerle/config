@@ -13,3 +13,4 @@ check() {
   fi
 }
 
+check

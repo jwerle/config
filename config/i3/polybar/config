@@ -29,13 +29,13 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=14;0
 font-3 = FontAwesome:pixelsize=18;0
 
-modules-left = pacman-update launcher
-modules-right = volume wireless-network battery temperature cpu memory
+modules-left = launcher temperature cpu
+modules-right = music wireless-network volume battery date pacman-update
 
 override-redirect = true
 wm-restack = i3
 
-;=== Top Bar (Secondary)===;
+;=== Top Bar (Secondary) ===;
 [bar/top-secondary]
 monitor = ${env:MONITOR:HDMI-2}
 width = 100%
@@ -52,8 +52,8 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=14;0
 font-3 = FontAwesome:pixelsize=18;0
 
-modules-left = music
-modules-right = battery temperature cpu memory date wireless-network
+modules-left = launcher temperature cpu
+modules-right = music wireless-network volume battery date pacman-update
 
 override-redirect = true
 wm-restack = i3
@@ -79,15 +79,48 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=10;0
 font-3 = FontAwesome:pixelsize=24;0
 
-modules-left = music
 modules-center = i3
-modules-right = date
 
 tray-transparent = true
-tray-position = right
+tray-position = left
 tray-padding = 0
 tray-maxsize = 25
 tray-scale = 1
+
+override-redirect = true
+wm-restack = i3
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+;=== Bottom Bar (Secondary) ===;
+[bar/bottom-secondary]
+monitor = ${env:MONITOR:HDMI-2}
+width = 100%
+height = 60
+offset-x = 0
+offset-y = 0
+spacing = 1
+;padding-left = 5
+;padding-right = 5
+
+bottom = true
+
+background = #00000000
+foreground = #888888
+
+font-0 = hack:heavy:pixelsize=18;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=10;0
+font-3 = FontAwesome:pixelsize=24;0
+
+modules-center = i3
+
+;tray-transparent = true
+;tray-position = right
+;tray-padding = 0
+;tray-maxsize = 25
+;tray-scale = 1
 
 override-redirect = true
 wm-restack = i3
@@ -124,21 +157,20 @@ date = "%B %d, %Y"
 date-alt = " %d"
 time = " %H:%M"
 time-alt =  %H:%M
-label = "  %date%    %time%"
+label = "  %date%  |  %time%"
 label-margin-left = 4
+label-margin-right = 4
 
 [module/volume]
 type = internal/volume
 format-volume = "<label-volume> <bar-volume>"
+format-volume-margin = 4
 
-label-volume = "  "
-label-muted = " Muted"
+label-volume = " "
+label-muted = " Muted  "
 label-volume-foreground = ${root.foreground}
 
-label-volume-margin-left = 4
-label-muted-margin-left = 4
-
-bar-volume-width = 12
+bar-volume-width = 8
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -160,7 +192,7 @@ bar-volume-empty-foreground =
 type = internal/network
 interface = wlp59s0
 
-format-connected-padding = 8
+format-connected-padding = 2
 format-disconnected-padding = 2
 format-packetloss-padding = 2
 
@@ -170,15 +202,15 @@ format-packetloss = "<animation-packetloss> <label-connected>"
 
 ;label-packetloss = ""
 ;label-packetloss-foreground = #66ffffff
-label-packetloss-margin-left = 4
+label-packetloss-margin-left = 2
 
 label-connected = "%essid%"
 label-connected-foreground = #eefafafa
-label-connected-margin-left = 4
+label-connected-margin-left = 2
 
 label-disconnected = "Not connected"
 label-disconnected-foreground = #66ffffff
-label-disconnected-margin-left = 4
+label-disconnected-margin-left = 2
 
 [module/launcher]
 type = custom/menu
@@ -229,7 +261,8 @@ label = " %temperature%"
 label-margin-left = 4
 
 [module/battery]
-label-margin-left = 4
+label-margin-left = 2
+label-margin-right = 2
 type = internal/battery
 full-at = 99
 battery = BAT0
@@ -264,7 +297,7 @@ format-full = <ramp-capacity> <label-full>
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current charge rate in watts)
-label-charging = Charging %percentage%%
+label-charging = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -296,8 +329,7 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 [module/music]
-;label-padding = 2
-label-margin-left = 4
+label-margin = 2
 type = custom/script
 interval = 2
 label = " %output:0:25:...%"

@@ -162,11 +162,6 @@ PS1="\n${Yellow}[${txtrst} \h-${Green}\u${txtrst} \w\$(__git_ps1) ${Yellow}]${tx
 . $HOME/.dotfiles/git-completion.bash
 GIT_PS1_SHOWDIRTYSTATE=true
 
-# Exec dircolors for gnome-terminal solarized
-if [ ! -z $DIRCOLORS ]; then
-  eval $(dircolors $HOME/.dotfiles/gnome-term-dircolors)
-fi
-
 # Aliases to make the CLI a little easier to handle
 alias cs="clear"
 alias cdcs="cd ~ && clear"
@@ -772,9 +767,7 @@ if test -d ~/repos;
   complete -F _repos rcd
 fi
 
-if ! $(ps awx | grep ssh-agent) 2>/dev/null; then
-  eval $(ssh-agent) 2>/dev/null
-fi
+eval $(ssh-agent) 2>&1 >/dev/null
 
 ssh-add
 ssh-add ~/.ssh/littlstar/*/*.pem
@@ -788,6 +781,7 @@ export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:~/node_modules/.bin"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.rbenv/shims"
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
@@ -801,3 +795,7 @@ alias ffpd='ffprobe -show_streams -show_format -print_format json -loglevel debu
 
 ### Added by the Heroku Toolbelt
 export TERM=xterm
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash ] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash

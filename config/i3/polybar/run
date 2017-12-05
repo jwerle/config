@@ -1,10 +1,15 @@
 #!/bin/sh
 
+## destroy running polybars
 killall polybar
+
+## timeout until started
+sleep 2
+
 polybar top -c ~/.polybar &
 polybar bottom -c ~/.polybar &
 
 if ! [ -z "$(xrandr | grep HDMI | grep ' connected' | awk '{print $1}' | head -n1 | tr -d '\n')" ]; then
-  echo "secondary"
   polybar top-secondary -c ~/.polybar &
+  polybar bottom-secondary -c ~/.polybar &
 fi

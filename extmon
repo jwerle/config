@@ -23,21 +23,24 @@ DISPLAY=":0.0"
 export DISPLAY
 
 on() {
-  local primary="$1"
-  local secondary="$2"
-  local mode="$3"
-  $XRANDR --output $primary --primary --output $secondary --right-of $primary --mode $mode --scale 1.5x1.5
+  local primary="$1"; shift
+  local secondary="$1"; shift
+  local mode="$1"; shift
+  #echo \
+  $XRANDR --output $primary --primary --output $secondary --right-of $primary --mode $mode $@
 }
 
 off() {
-  local target=$1
+  local target="$1"
+  #echo \
   $XRANDR --output $target --off
 }
 
+arg="$1"; shift
 ## determine arguments
-case "$1" in
-  on) on $MAIN $SECONDARY $MODE ;;
-  off) off $SECONDARY ;;
+case "$arg" in
+  on) on $MAIN $SECONDARY $MODE $@;;
+  off) off $SECONDARY $@;;
   status) $XRANDR ;;
 
   switch)

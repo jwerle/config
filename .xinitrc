@@ -18,7 +18,7 @@ xset fp rehash
 
 # set background image
 #hsetroot -fill /home/werle/backgrounds/beautiful-green-nature-surreal.jpg
-hsetroot -fill /home/werle/backgrounds/split.jpg
+hsetroot -full /home/werle/backgrounds/split.jpg
 
 # compose i3 config
 /home/werle/repos/config/config/i3/compile
