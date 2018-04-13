@@ -12,10 +12,10 @@ set $ws5 5: 
 ##
 # Window configutation.
 ##
-for_window [class=".*Spotify.*"]     \
-  move container to workspace "$ws5" \
-  resize set 2800px 1400px            \
-  floating enable                    \
+for_window [class=".*Spotify.*"]      \
+  floating enable,                    \
+  resize set 2800px 1400px,           \
+  move container to workspace "$ws5", \
 
 ##
 # Workspace assignment.

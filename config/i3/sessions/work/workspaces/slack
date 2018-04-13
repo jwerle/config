@@ -13,15 +13,15 @@ set $ws3 3: 
 ##
 # Window configutation.
 ##
-for_window [class=".*Slack.*"]        \
-  move container to workspace "$ws3"  \
-  resize set 2800px 1400px            \
-  floating enable                     \
+for_window [class=".*Slack.*"]         \
+  floating enable,                     \
+  move container to workspace "$ws3",  \
+  resize set 2800px 1400px,            \
 
-for_window [title=".*Slack.*" window_role="pop-up"]  \
-  move container to workspace "$ws3"                 \
-  resize set 2800px 1400px                           \
-  floating enable                                    \
+for_window [title=".*Slack.*" window_role="pop-up"]   \
+  floating enable,                                    \
+  move container to workspace "$ws3",                 \
+  resize set 2800px 1400px,                           \
 
 ##
 # Workspace assignment.

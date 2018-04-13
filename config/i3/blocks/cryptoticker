@@ -1,0 +1,22 @@
+#!/bin/bash
+
+token="$(echo $1 | tr '[:lower:]' '[:upper:]')"
+
+case "$token" in
+  BTC)
+    VALUE=$(curl -s 'https://blockchain.info/ticker'|jq '.["USD"]["15m"]' || echo '…')
+    VALUE=$(bc <<< "scale=3; $(echo $VALUE)")
+    ;;
+
+  ETH)
+    VALUE=$(curl -s 'https://poloniex.com/public?command=returnTicker'|jq '.BTC_ETH.last'| sed -e 's/^"//'  -e 's/"$//' || echo '0')
+    VALUE=$(bc <<< "scale=3; 1 / $(echo $VALUE)")
+    ;;
+
+  BTCETH)
+    VALUE=$(curl -s 'https://poloniex.com/public?command=returnTicker'|jq '.ETH_ETC.last'| sed -e 's/^"//'  -e 's/"$//' || echo '0')
+    VALUE=$(bc <<< "scale=3; 1 / $(echo $VALUE)")
+    ;;
+esac
+
+echo $1 $VALUE

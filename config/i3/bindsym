@@ -134,6 +134,7 @@ bindsym $mod+Return exec termite -e tmux
 bindsym $mod+Shift+n exec termite -e node
 bindsym $mod+Shift+g exec termite -e gtop
 bindsym $mod+h exec termite -e htop
+bindsym $mod+t exec termite
 bindsym $mod+Shift+d exec termite -e 'dmesg -w'
 bindsym $mod+Shift+v exec termite -e 'alsamixer'
 

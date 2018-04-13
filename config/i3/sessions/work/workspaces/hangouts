@@ -12,10 +12,10 @@ set $ws4 4: 
 ##
 # Window configutation.
 ##
-for_window [title=".*Google Hangouts.*" window_role="pop-up"] \
-  move container to workspace "$ws4"                          \
-  resize set 2800px 1400px                                    \
-  floating enable                                             \
+for_window [title=".*Google Hangouts.*" window_role="pop-up"]  \
+  floating enable,                                             \
+  move container to workspace "$ws4",                          \
+  resize set 2800px 1400px,                                    \
 
 ##
 # Workspace assignment.

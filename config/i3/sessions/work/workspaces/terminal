@@ -13,23 +13,23 @@ set $ws1 1: 
 # Generic terminal
 ##
 for_window [class=".*Termite.*"] \
-  resize set 2500px 1250px       \
-  move position center           \
-  floating enable                \
+  floating enable,               \
+  resize set 2500px 1250px,      \
+  move position center,          \
 
 ##
 # Window configutation.
 ##
 for_window [workspace="$ws1" class=".*Termite.*"] \
-  resize set 3050px 1600px                        \
-  move position center                            \
+  resize set 3050px 1600px,                       \
+  move position center,                           \
 
 ##
 # Large terminal
 ##
 for_window [workspace="$ws10" class=".*Termite.*"] \
-  resize set 3000px 1500px                         \
-  move position center                             \
+  resize set 3000px 1500px,                        \
+  move position center,                            \
 
 ##
 # Workspace assignment.

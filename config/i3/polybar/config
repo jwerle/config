@@ -29,7 +29,7 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=14;0
 font-3 = FontAwesome:pixelsize=18;0
 
-modules-left = launcher temperature cpu
+modules-left = launcher temperature cpu btc eth btceth
 modules-right = music wireless-network volume battery date pacman-update
 
 override-redirect = true
@@ -52,7 +52,7 @@ font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=14;0
 font-3 = FontAwesome:pixelsize=18;0
 
-modules-left = launcher temperature cpu
+modules-left = launcher temperature
 modules-right = music wireless-network volume battery date pacman-update
 
 override-redirect = true
@@ -344,4 +344,28 @@ format-underline = #dc322f
 label = "%output:0:60:...%"
 exec = ~/repos/config/config/i3/blocks/pacman-update
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+
+[module/btc]
+type = custom/script
+interval=60
+color=#FFBB00
+separator=false
+exec = ~/repos/config/config/i3/blocks/cryptoticker BTC
+label = "  %output:0:25:...% "
+
+[module/eth]
+type = custom/script
+exec = ~/repos/config/config/i3/blocks/cryptoticker ETH
+interval=60
+color=#FFBB00
+separator=false
+label = "  %output:0:25:...% "
+
+[module/btceth]
+type = custom/script
+exec = ~/repos/config/config/i3/blocks/cryptoticker BTCETH
+interval=60
+color=#FFBB00
+separator=false
+label = "  %output:0:25:...% "
 

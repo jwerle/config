@@ -792,6 +792,7 @@ alias s3="s4cmd"
 alias yarni="yarn --ignore-engines"
 alias ffp='ffprobe -show_streams -show_format -print_format json'
 alias ffpd='ffprobe -show_streams -show_format -print_format json -loglevel debug'
+alias guitarpro='/opt/GuitarPro6/launcher.sh'
 
 ### Added by the Heroku Toolbelt
 export TERM=xterm
@@ -799,3 +800,9 @@ export TERM=xterm
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash ] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash

@@ -13,10 +13,10 @@ set $ws2 2: 
 ##
 # Window configutation.
 ##
-for_window [class="Google-chrome" window_role="browser"]  \
-  move container to workspace "$ws2"                      \
-  resize set 3000px 1600px                                \
-  floating enable                                         \
+for_window [class="Google-chrome" window_role="browser"]   \
+  floating enable,                                         \
+  move container to workspace "$ws2",                      \
+  resize set 3000px 1600px,                                \
 
 ##
 # Workspace assignment.
