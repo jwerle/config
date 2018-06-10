@@ -772,6 +772,10 @@ eval $(ssh-agent) 2>&1 >/dev/null
 ssh-add
 ssh-add ~/.ssh/littlstar/*/*.pem
 
+export GOROOT=/usr/local/go
+export GOPATH=~/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 export PATH="$PATH:~/repos/depot_tools"
 export PATH="$PATH:~/repos/gyp"
 export PATH=".:$PATH"

@@ -1,8 +1,8 @@
 # vim: set syntax=i3:
-set $FOCUS #0e3a47
-set $UNFOCUS #d2ebf2
-set $black #282828
-set $darkblack #1d2021
+set $FOCUS #2A58A7
+set $UNFOCUS #91A4C4
+set $black #182337
+set $darkblack #040F20
 set $transparent #00000000
 
 # Layout colors 	      bord 	    bg 		    text      indicator (split)

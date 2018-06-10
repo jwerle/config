@@ -8,24 +8,7 @@ set $dp1 DP-1
 set $dp2 HDMI-1
 set $dp3 HDMI-2
 
-##
-# Workspace variables.
-##
-set $ws10 10: X
-
 set $device_scale_factor 1.8
-
-##
-# Generic window configutation.
-##
-for_window [             \
-  window_role=".*"       \
-  instance="[.]*"        \
-  class="[.]*"           \
-  title="[.]*"           \
-]                        \
-  move position center   \
-  floating enable        \
 
 ##
 # sView
@@ -56,6 +39,19 @@ for_window [window_role="task_dialog"] \
 for_window [window_role="Preferences"] \
   move position center                 \
   floating enable                      \
+
+##
+# Generic window configutation.
+##
+for_window [             \
+  window_role="[.]*"     \
+  instance="[.]*"        \
+  class="[.]*"           \
+  title="[.]*"           \
+]                        \
+  move position center,  \
+  move down 60 px,       \
+  floating enable,       \
 
 ##
 # Display output assignments.

@@ -41,7 +41,7 @@ bindsym $mod+Shift+KP_Divide layout toggle split
 bindsym $mod+Shift+KP_Multiply layout tabbed
 bindsym $mod+Shift+KP_Subtract layout stacking
 
-bindsym $mod+Shift+space move position center
+bindsym $mod+Shift+space move position center, move down 10 px
 bindsym $mod+Shift+Left move position 0 px 80 px, resize 50%
 bindsym $mod+Shift+Right move position
 bindsym $mod+Shift+Up move position top
@@ -92,7 +92,6 @@ bindsym $mod+Tab workspace next
 ## alt-tab to previous workspace
 bindsym $mod+Shift+Tab workspace prev
 
-
 ## send ctrl+k
 #bindsym --release $mod+k exec --no-startup-id xdotool key --clearmodifiers ctrl+k
 
@@ -139,34 +138,34 @@ bindsym $mod+Shift+d exec termite -e 'dmesg -w'
 bindsym $mod+Shift+v exec termite -e 'alsamixer'
 
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym o      mode "$mode_gaps_outer"
+  bindsym i      mode "$mode_gaps_inner"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+  bindsym plus  gaps inner current plus 5
+    bindsym minus gaps inner current minus 5
+    bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+    bindsym Shift+plus  gaps inner all plus 5
+    bindsym Shift+minus gaps inner all minus 5
+    bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+  bindsym plus  gaps outer current plus 5
+    bindsym minus gaps outer current minus 5
+    bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+    bindsym Shift+plus  gaps outer all plus 5
+    bindsym Shift+minus gaps outer all minus 5
+    bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }

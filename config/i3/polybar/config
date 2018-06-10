@@ -1,4 +1,4 @@
-# vim: set syntax=conf:
+# vim: set syntax=dosini:
 ;=====================================================
 ;
 ;   To learn more about how to configure Polybar
@@ -15,138 +15,70 @@ margin-bottom = 5
 ;=== Top Bar ===;
 [bar/top]
 monitor = ${env:MONITOR:eDP-1}
-width = 100%
-height = 60
-offset-x = 0
-padding-left = 5
-padding-right = 5
-
-background = #111111
-foreground = #888888
-
-font-0 = Source Sans Pro:pixelsize=18;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=14;0
-font-3 = FontAwesome:pixelsize=18;0
-
-modules-left = launcher temperature cpu btc eth btceth
-modules-right = music wireless-network volume battery date pacman-update
-
-override-redirect = true
+dim-value = 0.7
 wm-restack = i3
-
-;=== Top Bar (Secondary) ===;
-[bar/top-secondary]
-monitor = ${env:MONITOR:HDMI-2}
-width = 100%
-height = 60
-offset-x = 0
-padding-left = 5
-padding-right = 5
-
-background = #111111
-foreground = #888888
-
-font-0 = Source Sans Pro:pixelsize=18;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=14;0
-font-3 = FontAwesome:pixelsize=18;0
-
-modules-left = launcher temperature
-modules-right = music wireless-network volume battery date pacman-update
-
 override-redirect = true
-wm-restack = i3
 
-;=== Bottom Bar ===;
-[bar/bottom]
-monitor = ${env:MONITOR:eDP-1}
-width = 100%
-height = 60
-offset-x = 0
-offset-y = 0
 spacing = 1
-;padding-left = 5
-;padding-right = 5
 
-bottom = true
+width = 94%
+height = 5%
 
-background = #00000000
-foreground = #888888
+offset-x = 3%
+offset-y = 3%
 
-font-0 = hack:heavy:pixelsize=18;1
+padding-left = 10%
+padding-right = 10%
+
+radius = 10.0
+
+background = #1111116
+foreground = #040F20
+
+font-0 = Source Sans Pro:pixelsize=18;1
 font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=24;0
+font-2 = siji:pixelsize=14;0
+font-3 = FontAwesome:pixelsize=18;0
 
-modules-center = i3
+modules-left = i3 temperature cpu btc
+modules-right = music wireless-network volume battery date pacman-update
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 tray-transparent = true
-tray-position = left
-tray-padding = 0
+tray-position = right
 tray-maxsize = 25
+tray-padding = 0
 tray-scale = 1
-
-override-redirect = true
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
-
-;=== Bottom Bar (Secondary) ===;
-[bar/bottom-secondary]
-monitor = ${env:MONITOR:HDMI-2}
-width = 100%
-height = 60
-offset-x = 0
-offset-y = 0
-spacing = 1
-;padding-left = 5
-;padding-right = 5
-
-bottom = true
-
-background = #00000000
-foreground = #888888
-
-font-0 = hack:heavy:pixelsize=18;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=10;0
-font-3 = FontAwesome:pixelsize=24;0
-
-modules-center = i3
-
-;tray-transparent = true
-;tray-position = right
-;tray-padding = 0
-;tray-maxsize = 25
-;tray-scale = 1
-
-override-redirect = true
-wm-restack = i3
-
-scroll-up = i3wm-wsnext
-scroll-down = i3wm-wsprev
 
 [module/i3]
 type = internal/i3
+
 format = <label-state> <label-mode>
-index-sort = true
+
 wrapping-scroll = true
 strip-wsnumbers = true
 pin-workspaces = true
+index-sort = true
 
+ws-icon-default =
+
+label-mode = mode %mode%
 label-mode-padding = 5
 label-mode-foreground = #ffffff
 
-label-unfocused-foreground = #888888
+label-unfocused = %name%
 label-unfocused-padding = 1
+label-unfocused-foreground = #888888
 
-label-visible-foregroud = #888888
+label-visible = %index%
 label-visible-padding = 1
+label-visible-foregroud = #888888
 
-label-focused-foreground = #ffffff
-label-focused-padding = 1
+label-focused =  %name%
+label-focused-padding = 1.4
+label-focused-foreground = #273F51
 
 label-urgent-padding = 1
 
@@ -170,7 +102,7 @@ label-volume = " "
 label-muted = " Muted  "
 label-volume-foreground = ${root.foreground}
 
-bar-volume-width = 8
+bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -211,35 +143,6 @@ label-connected-margin-left = 2
 label-disconnected = "Not connected"
 label-disconnected-foreground = #66ffffff
 label-disconnected-margin-left = 2
-
-[module/launcher]
-type = custom/menu
-label-open = " "
-label-close = "   "
-label-separator = "  "
-label-open-foreground = #4d6b9b
-margin-right = 4
-
-menu-0-0 = ""
-menu-0-0-foreground = #fefefe
-menu-0-0-exec = termite -e tmux -t Terminal
-
-menu-0-1 = ""
-menu-0-1-foreground = #399de5
-menu-0-1-exec = google-chrome-stable --force-device-scale-factor=2
-
-menu-0-2 = ""
-menu-0-2-foreground = #5ca835
-menu-0-2-exec = spotify --force-device-scale-factor=2
-
-menu-0-3 = ""
-menu-0-3-foreground = #ffffff
-menu-0-3-exec = slack --force-device-scale-factor=2
-
-menu-0-4 = ""
-menu-0-4-foreground = #ffffff
-menu-0-4-exec = google-chrome-stable --force-device-scale-factor=2 https://github.com
-
 
 [module/memory]
 type = internal/memory
@@ -348,7 +251,7 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 [module/btc]
 type = custom/script
 interval=60
-color=#FFBB00
+color = #182337
 separator=false
 exec = ~/repos/config/config/i3/blocks/cryptoticker BTC
 label = "  %output:0:25:...% "

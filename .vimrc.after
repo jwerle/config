@@ -130,6 +130,9 @@ au BufNewFile,BufRead .babelrc set syntax=json
 au BufNewFile,BufRead .cfsrc set filetype=conf
 au BufNewFile,BufRead .cfsrc set syntax=conf
 
+au BufNewFile,BufRead .ararc set filetype=conf
+au BufNewFile,BufRead .ararc set syntax=conf
+
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set filetype=glsl
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
 

@@ -16,8 +16,8 @@ rm -f $OUT
 
 ## compose i3 config
 cat $DIR/config >> $OUT
-cat $DIR/$SESSION/config >> $OUT
 cat $DIR/$SESSION/*/* >> $OUT
+cat $DIR/$SESSION/config >> $OUT
 cat $DIR/bindsym >> $OUT
 cat $DIR/theme >> $OUT
 cat $DIR/exec >> $OUT
