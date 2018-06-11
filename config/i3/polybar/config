@@ -18,30 +18,38 @@ monitor = ${env:MONITOR:eDP-1}
 dim-value = 0.7
 wm-restack = i3
 override-redirect = true
-
+separator =
 spacing = 1
 
-width = 94%
-height = 5%
+width = 100%
+height = 9%
 
-offset-x = 3%
-offset-y = 3%
+offset-x = 0%
+offset-y = 1%
 
-padding-left = 10%
-padding-right = 10%
+padding-left = 13%
+padding-right = 13%
 
 radius = 10.0
 
 background = #1111116
 foreground = #040F20
 
+border-bottom-size = 0.5
+border-bottom-color = #1D3546
+
 font-0 = Source Sans Pro:pixelsize=18;1
 font-1 = unifont:size=10:heavy:fontformat=truetype;-2
 font-2 = siji:pixelsize=14;0
-font-3 = FontAwesome:pixelsize=18;0
 
-modules-left = i3 temperature cpu btc
-modules-right = music wireless-network volume battery date pacman-update
+# font-3 = FontAwesome:pixelsize=18;0
+
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=24;2"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=26;2"
+font-5 = "Font Awesome 5 Brands:style=Regular:pixelsize=24;2"
+
+modules-left = i3
+modules-right = volume wireless-network battery date
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
@@ -51,6 +59,43 @@ tray-position = right
 tray-maxsize = 25
 tray-padding = 0
 tray-scale = 1
+
+[bar/bottom]
+monitor = ${env:MONITOR:eDP-1}
+dim-value = 0.7
+wm-restack = i3
+override-redirect = true
+separator =
+spacing = 1
+bottom = true
+
+width = 80%
+height = 5%
+
+offset-x = 10%
+offset-y = 1.5%
+
+padding-left = 10%
+padding-right = 10%
+
+background = #1111116
+foreground = #040F20
+
+border-top-size = 0.8
+border-top-color = #9BA3A8
+
+modules-left = pacman-update temperature cpu btc
+modules-right = music
+
+font-0 = Source Sans Pro:pixelsize=18;1
+font-1 = unifont:size=10:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=14;0
+
+# font-3 = FontAwesome:pixelsize=18;0
+
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=24;2"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=26;2"
+font-5 = "Font Awesome 5 Brands:style=Regular:pixelsize=24;2"
 
 [module/i3]
 type = internal/i3
@@ -62,25 +107,27 @@ strip-wsnumbers = true
 pin-workspaces = true
 index-sort = true
 
-ws-icon-default =
+ws-icon-default = 
 
-label-mode = mode %mode%
+label-mode = %mode%
 label-mode-padding = 5
-label-mode-foreground = #ffffff
+label-mode-foreground = #B8BEC3
 
 label-unfocused = %name%
-label-unfocused-padding = 1
-label-unfocused-foreground = #888888
+label-unfocused-padding = 2
+label-unfocused-foreground = #B8BEC3
 
 label-visible = %index%
 label-visible-padding = 1
-label-visible-foregroud = #888888
+label-visible-foregroud = #B8BEC3
 
-label-focused =  %name%
-label-focused-padding = 1.4
+label-focused = %index% %name%
+label-focused-padding = 2.5
 label-focused-foreground = #273F51
 
+label-urgent =  %name%
 label-urgent-padding = 1
+label-urgent-foreground = #5C223C
 
 [module/date]
 type = internal/date
@@ -89,8 +136,8 @@ date = "%B %d, %Y"
 date-alt = " %d"
 time = " %H:%M"
 time-alt =  %H:%M
-label = "  %date%  |  %time%"
-label-margin-left = 4
+label = "  %date%   %time%"
+label-margin-left = 2
 label-margin-right = 4
 
 [module/volume]
@@ -103,19 +150,20 @@ label-muted = " Muted  "
 label-volume-foreground = ${root.foreground}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-0 = #847D00
+bar-volume-foreground-1 = #847D00
+bar-volume-foreground-2 = #6D6A28
+bar-volume-foreground-3 = #6D6A28
+bar-volume-foreground-4 = #FFF986
+bar-volume-foreground-5 = #FFF986
+bar-volume-foreground-6 = #D3CE72
 bar-volume-gradient = false
 bar-volume-indicator = │
 bar-volume-indicator-font = 2
 bar-volume-indicator-foreground = #ff
-bar-volume-fill = ─
+bar-volume-fill = 
 bar-volume-fill-font = 2
+bar-volume-fill-foreground = #847D00
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground =
@@ -137,11 +185,11 @@ format-packetloss = "<animation-packetloss> <label-connected>"
 label-packetloss-margin-left = 2
 
 label-connected = "%essid%"
-label-connected-foreground = #eefafafa
+label-connected-foreground = #B8BEC3
 label-connected-margin-left = 2
 
 label-disconnected = "Not connected"
-label-disconnected-foreground = #66ffffff
+label-disconnected-foreground = #273F51
 label-disconnected-margin-left = 2
 
 [module/memory]
@@ -151,6 +199,7 @@ label-margin-left = 4
 
 [module/cpu]
 label-margin-left = 4
+label-margin-right = 4
 type = internal/cpu
 format = <label>
 label = " %percentage%%"
@@ -162,6 +211,7 @@ thermal-zone = 0
 warn-temperature = 60
 label = " %temperature%"
 label-margin-left = 4
+label-margin-right = 4
 
 [module/battery]
 label-margin-left = 2
@@ -206,7 +256,7 @@ label-charging = %percentage%%
 ;   %percentage% (default)
 ;   %time%
 ;   %consumption% (shows current discharge rate in watts)
-label-discharging = Discharging %percentage%%
+label-discharging = (%percentage%%)
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -223,11 +273,11 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 
 ; Only applies if <animation-charging> is used
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 =  
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -235,7 +285,7 @@ animation-charging-framerate = 750
 label-margin = 2
 type = custom/script
 interval = 2
-label = " %output:0:25:...%"
+label = " %output:0:40:...%"
 exec = ~/repos/config/config/i3/blocks/playerctl
 
 [module/pacman-update]
@@ -251,24 +301,7 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 [module/btc]
 type = custom/script
 interval=60
-color = #182337
+label-foreground = #1D3546
 separator=false
 exec = ~/repos/config/config/i3/blocks/cryptoticker BTC
-label = "  %output:0:25:...% "
-
-[module/eth]
-type = custom/script
-exec = ~/repos/config/config/i3/blocks/cryptoticker ETH
-interval=60
-color=#FFBB00
-separator=false
-label = "  %output:0:25:...% "
-
-[module/btceth]
-type = custom/script
-exec = ~/repos/config/config/i3/blocks/cryptoticker BTCETH
-interval=60
-color=#FFBB00
-separator=false
-label = "  %output:0:25:...% "
-
+label = "  %output:0:12:% "

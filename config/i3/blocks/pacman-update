@@ -9,8 +9,8 @@ check() {
   if [[ "$check" != "0" ]]; then
     echo "$pac %{F#6b5b5b}%{F-} $aur"
   else
-    echo "No updates available."
+    echo ""
   fi
 }
 
-check
+check 2>/dev/null

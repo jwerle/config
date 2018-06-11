@@ -13,19 +13,20 @@ set $ws1 1: 
 # Generic terminal
 ##
 for_window [class=".*Termite.*"] \
-  floating enable, \
-  resize set 2500px 1250px       \
-  move position center \
+  floating enable,               \
+  resize set 1800px 1150px,      \
+  move position center,          \
+  move down 60 px,               \
 
 ##
 # Window configutation.
 ##
 for_window [workspace="$ws1" class=".*Termite.*"] \
-  resize set 3000px 1400px,                        \
-  resize shrink width 10000px, \
-  resize grow width 2800px, \
-  move position center, \
-  move down 60 px, \
+  resize set 3000px 1350px,                       \
+  resize shrink width 10000px,                    \
+  resize grow width 2700px,                       \
+  move position center,                           \
+  move down 60 px,                                \
 
 ##
 # Large terminal

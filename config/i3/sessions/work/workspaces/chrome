@@ -14,7 +14,7 @@ set $ws2 2: 
 # Window configutation.
 ##
 for_window [class="Google-chrome" window_role="browser"]   \
-  resize set 2800px 1500px,                                \
+  resize set 2800px 1400px,                                \
   move container to workspace "$ws2",                      \
 
 ##

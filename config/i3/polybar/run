@@ -7,7 +7,7 @@ killall polybar
 sleep 2
 
 polybar top -c ~/.polybar &
-#polybar bottom -c ~/.polybar &
+polybar bottom -c ~/.polybar &
 
 if ! [ -z "$(xrandr | grep HDMI | grep ' connected' | awk '{print $1}' | head -n1 | tr -d '\n')" ]; then
   polybar top-secondary -c ~/.polybar &
