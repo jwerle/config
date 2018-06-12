@@ -16,12 +16,12 @@ set $ws3 3: 
 for_window [class=".*Slack.*"]         \
   floating enable,                     \
   move container to workspace "$ws3",  \
-  resize set 2800px 1400px,            \
+  resize set 2400px 1200px,            \
 
 for_window [title=".*Slack.*" window_role="pop-up"]   \
   floating enable,                                    \
   move container to workspace "$ws3",                 \
-  resize set 2800px 1400px,                           \
+  resize set 2400px 1200px,                           \
 
 ##
 # Workspace assignment.

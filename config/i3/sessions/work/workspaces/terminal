@@ -16,23 +16,22 @@ for_window [class=".*Termite.*"] \
   floating enable,               \
   resize set 1800px 1150px,      \
   move position center,          \
-  move down 60 px,               \
 
 ##
 # Window configutation.
 ##
 for_window [workspace="$ws1" class=".*Termite.*"] \
-  resize set 3000px 1350px,                       \
+  resize set 2800px 1400px,                       \
   resize shrink width 10000px,                    \
   resize grow width 2700px,                       \
   move position center,                           \
-  move down 60 px,                                \
 
 ##
 # Large terminal
 ##
 for_window [workspace="$ws10" class=".*Termite.*"] \
-  resize set 3000px 1500px,                        \
+  resize set 2800px 1400px,                        \
+  move position center,                            \
 
 ##
 # Workspace assignment.

@@ -1,5 +1,5 @@
-# vim: set syntax=sh:
 
+# vim: set syntax=sh:
 # set frame rate
 xset r rate 200 40 &
 
@@ -18,7 +18,8 @@ xset fp rehash
 
 # set background image
 #hsetroot -fill /home/werle/backgrounds/beautiful-green-nature-surreal.jpg
-hsetroot -full /home/werle/backgrounds/split.jpg
+#hsetroot -full /home/werle/backgrounds/split.jpg
+hsetroot -full /home/werle/backgrounds/sea.jpg
 
 # compose i3 config
 /home/werle/repos/config/config/i3/compile

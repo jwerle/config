@@ -50,7 +50,6 @@ for_window [             \
   title="[.]*"           \
 ]                        \
   move position center,  \
-  move down 60 px,       \
   floating enable,       \
 
 ##

@@ -10,13 +10,13 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Term Slab Bold 24
+font = Iosevka Term Slab Bold 16
 scrollback_lines = 10000
 search_wrap = true
 icon_name = terminal
 window_border = true
 border = #3f3f3f
-border_width = 0.5
+border_width = 10
 roundness = 20.0
 
 # "system", "on" or "off"
@@ -36,9 +36,9 @@ word_chars = -A-Za-z0-9,./?%&#:_=+@~
 size_hints = false
 
 [colors]
-foreground_bold = #ffffff
-background = rgba(0, 0, 0, 0.9)
-foreground = #ababab
+foreground_bold = rgba(255, 254, 234, 0.8)
+background = rgba(29, 53, 70, 0.887)
+foreground = #D8C6CF
 cursor = #657b83
 
 # if unset, will reverse foreground and background
@@ -46,9 +46,10 @@ highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
 color0 =     #000000
-color1 =     #9e1828
-color2 =     #aece92
-color3 =     #968a38
+color1 =     #1D3546
+color2 =     #053255
+color3 =     #6EA2C7
+
 color4 =     #414171
 color5 =     #963c59
 color6 =     #418179

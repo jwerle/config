@@ -22,18 +22,18 @@ separator =
 spacing = 1
 
 width = 100%
-height = 9%
+height = 6%
 
 offset-x = 0%
-offset-y = 1%
+offset-y = 0%
 
-padding-left = 13%
-padding-right = 13%
+padding-left = 10%
+padding-right = 10%
 
-radius = 10.0
+#radius = 10.0
 
-background = #1111116
-foreground = #040F20
+background = #111111e
+foreground = #1D3546
 
 border-bottom-size = 0.5
 border-bottom-color = #1D3546
@@ -49,16 +49,10 @@ font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=26;2"
 font-5 = "Font Awesome 5 Brands:style=Regular:pixelsize=24;2"
 
 modules-left = i3
-modules-right = volume wireless-network battery date
+modules-right = volume wireless-network date battery
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
-
-tray-transparent = true
-tray-position = right
-tray-maxsize = 25
-tray-padding = 0
-tray-scale = 1
 
 [bar/bottom]
 monitor = ${env:MONITOR:eDP-1}
@@ -69,33 +63,38 @@ separator =
 spacing = 1
 bottom = true
 
-width = 80%
+width = 100%
 height = 5%
 
-offset-x = 10%
-offset-y = 1.5%
+offset-x = 0%
+offset-y = 0%
 
 padding-left = 10%
 padding-right = 10%
 
-background = #1111116
-foreground = #040F20
+background = #111111f
+foreground = #1D3546
 
 border-top-size = 0.8
 border-top-color = #9BA3A8
 
-modules-left = pacman-update temperature cpu btc
-modules-right = music
+modules-left =  btc eth xrp music
+modules-right = temperature cpu pacman-update
 
-font-0 = Source Sans Pro:pixelsize=18;1
-font-1 = unifont:size=10:heavy:fontformat=truetype;-2
-font-2 = siji:pixelsize=14;0
+tray-transparent = true
+tray-position = right
+tray-maxsize = 24
+tray-padding = 0
+tray-scale = 1.0
 
-# font-3 = FontAwesome:pixelsize=18;0
+font-0 = Source Sans Pro:pixelsize=20;1
+font-1 = unifont:size=20:heavy:fontformat=truetype;-2
+font-2 = siji:pixelsize=18;0
 
 font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=24;2"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=26;2"
-font-5 = "Font Awesome 5 Brands:style=Regular:pixelsize=24;2"
+font-5 = "Font Awesome 5 Brands:style=Regular:pixelsize=28;2"
+font-6 = FontAwesome:pixelsize=24;0
 
 [module/i3]
 type = internal/i3
@@ -136,9 +135,10 @@ date = "%B %d, %Y"
 date-alt = " %d"
 time = " %H:%M"
 time-alt =  %H:%M
-label = "  %date%   %time%"
+label = "  %date% |  %time%"
 label-margin-left = 2
 label-margin-right = 4
+;label
 
 [module/volume]
 type = internal/volume
@@ -146,24 +146,27 @@ format-volume = "<label-volume> <bar-volume>"
 format-volume-margin = 4
 
 label-volume = " "
-label-muted = " Muted  "
 label-volume-foreground = ${root.foreground}
 
+label-muted = "🔇 Muted  "
+label-muted-foreground = $6F0033
+
+
 bar-volume-width = 10
-bar-volume-foreground-0 = #847D00
-bar-volume-foreground-1 = #847D00
-bar-volume-foreground-2 = #6D6A28
-bar-volume-foreground-3 = #6D6A28
-bar-volume-foreground-4 = #FFF986
-bar-volume-foreground-5 = #FFF986
-bar-volume-foreground-6 = #D3CE72
+bar-volume-foreground-0 = #1D3546
+bar-volume-foreground-1 = #1D3546
+bar-volume-foreground-2 = #053255
+bar-volume-foreground-3 = #053255
+bar-volume-foreground-4 = #4D6F87
+bar-volume-foreground-5 = #4D6F87
+bar-volume-foreground-6 = #6EA2C7
 bar-volume-gradient = false
 bar-volume-indicator = │
-bar-volume-indicator-font = 2
-bar-volume-indicator-foreground = #ff
-bar-volume-fill = 
+bar-volume-indicator-font = 4
+bar-volume-indicator-foreground = #1D3546
+bar-volume-fill = ─
 bar-volume-fill-font = 2
-bar-volume-fill-foreground = #847D00
+bar-volume-fill-foreground = #1D3546
 bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground =
@@ -185,7 +188,7 @@ format-packetloss = "<animation-packetloss> <label-connected>"
 label-packetloss-margin-left = 2
 
 label-connected = "%essid%"
-label-connected-foreground = #B8BEC3
+label-connected-foreground = #1D3546
 label-connected-margin-left = 2
 
 label-disconnected = "Not connected"
@@ -273,11 +276,11 @@ ramp-capacity-4 = 
 bar-capacity-width = 10
 
 ; Only applies if <animation-charging> is used
-animation-charging-0 =  
-animation-charging-1 =  
-animation-charging-2 =  
-animation-charging-3 =  
-animation-charging-4 =  
+animation-charging-0 =   
+animation-charging-1 =   
+animation-charging-2 =   
+animation-charging-3 =   
+animation-charging-4 =   
 ; Framerate in milliseconds
 animation-charging-framerate = 750
 
@@ -301,7 +304,26 @@ exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 [module/btc]
 type = custom/script
 interval=60
-label-foreground = #1D3546
+label-foreground = #6D6A28
 separator=false
 exec = ~/repos/config/config/i3/blocks/cryptoticker BTC
-label = "  %output:0:12:% "
+label = " $%output:0:8:% "
+label-padding = 3
+
+[module/eth]
+type = custom/script
+interval=60
+label-foreground = #1F262B
+separator=false
+exec = ~/repos/config/config/i3/blocks/cryptoticker ETH
+label = "⧫ $%output:0:6:% "
+label-padding = 3
+
+[module/xrp]
+type = custom/script
+interval=60
+label-foreground = #053255
+separator=false
+exec = ~/repos/config/config/i3/blocks/cryptoticker XRP
+label = " $%output:0:6:% "
+label-padding = 3

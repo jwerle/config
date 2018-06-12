@@ -87,9 +87,12 @@ set path+=./deps/**
 " plum theme
 set term=screen-256color
 set bg=dark
+"set bg=light
 "colorscheme plum
 "colorscheme zazen
 colorscheme hybrid_material
+"colorscheme perun
+"colorscheme seagrey-dark
 
 " make transparent background
 highlight Normal ctermbg=none
@@ -135,6 +138,8 @@ au BufNewFile,BufRead .ararc set syntax=conf
 
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set filetype=glsl
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
+
+highlight LineNr ctermfg=grey
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc"))

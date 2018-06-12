@@ -33,10 +33,10 @@ bindsym $mod+s+e split h
 bindsym $mod+s+x split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+f fullscreen toggle, mode down 10 px
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+Shift+KP_Add floating toggle, move position center
+bindsym $mod+Shift+KP_Add floating toggle, move position center, move down 60px
 bindsym $mod+Shift+KP_Divide layout toggle split
 bindsym $mod+Shift+KP_Multiply layout tabbed
 bindsym $mod+Shift+KP_Subtract layout stacking
@@ -125,7 +125,7 @@ bindsym $mod+F11 exec --no-startup-id amixer -c 1 sset 'Master' 5%-
 bindsym $mod+F10 exec --no-startup-id amixer sset 'Master' toggle
 
 bindsym $alt+Tab exec rofi -show window
-set $execute exec rofi -show run -eh 2 -padding 400 -fullscreen -matching fuzzy -fake-transparency -fake-background
+set $execute exec rofi -show run -eh 2 -padding 400 -matching fuzzy
 bindsym $mod+space $execute
 
 # program shortcuts
