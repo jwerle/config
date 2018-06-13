@@ -28,7 +28,7 @@ on() {
   local secondary="$1"; shift
   local mode="$1"; shift
   #echo \
-  $XRANDR --output $primary --primary --output $secondary --$ORIENTATION $primary --mode $mode $@
+  $XRANDR --output $primary --primary --auto --output $secondary --auto --$ORIENTATION $primary --mode $mode $@
 }
 
 off() {

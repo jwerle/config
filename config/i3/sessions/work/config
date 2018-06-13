@@ -61,6 +61,8 @@ workspace "$ws3" output $dp0
 workspace "$ws4" output $dp0
 workspace "$ws5" output $dp0
 workspace "$ws10" output $dp1
+workspace "$ws10" output $dp2
+workspace "$ws10" output $dp3
 
 floating_minimum_size -1 x -1
 floating_maximum_size -1 x -1
