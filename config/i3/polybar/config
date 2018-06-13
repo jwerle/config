@@ -15,6 +15,7 @@ margin-bottom = 5
 ;=== Top Bar ===;
 [bar/top]
 monitor = ${env:MONITOR:eDP-1}
+#monitor =
 dim-value = 0.7
 wm-restack = i3
 override-redirect = true

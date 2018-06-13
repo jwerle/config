@@ -37,7 +37,7 @@ size_hints = false
 
 [colors]
 foreground_bold = rgba(255, 254, 234, 0.8)
-background = rgba(29, 53, 70, 0.887)
+background = rgba(3, 25, 40, 0.922)
 foreground = #D8C6CF
 cursor = #657b83
 
@@ -46,19 +46,19 @@ highlight = #2f2f2f
 
 # colors from color0 to color254 can be set
 color0 =     #000000
-color1 =     #1D3546
+color1 =     #D37472
 color2 =     #053255
 color3 =     #6EA2C7
 
-color4 =     #414171
-color5 =     #963c59
-color6 =     #418179
-color7 =     #bebebe
-color8 =     #666666
-color9 =     #cf6171
-color10 =    #c5f779
-color11 =    #fff796
-color12 =    #4186be
-color13 =    #cf9ebe
-color14 =    #71bebe
-color15 =    #ffffff
+#color4 =     #414171
+#color5 =     #963c59
+#color6 =     #418179
+#color7 =     #bebebe
+#color8 =     #666666
+#color9 =     #cf6171
+#color10 =    #c5f779
+#color11 =    #fff796
+#color12 =    #4186be
+#color13 =    #cf9ebe
+#color14 =    #71bebe
+#color15 =    #ffffff
