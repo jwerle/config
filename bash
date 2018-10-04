@@ -767,7 +767,7 @@ if test -d ~/repos;
   complete -F _repos rcd
 fi
 
-eval $(ssh-agent) 2>&1 >/dev/null
+#eval $(ssh-agent) 2>&1 >/dev/null
 
 ssh-add
 ssh-add ~/.ssh/littlstar/*/*.pem
