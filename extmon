@@ -5,7 +5,7 @@
 
 XRANDR=$(which xrandr)
 MAIN=${MAIN:-eDP-1}
-SECONDARY=$(xrandr | grep HDMI | grep ' connected' | awk '{print $1}' | head -n1 | tr -d '\n')
+SECONDARY="${SECONDARY:-$(xrandr | grep HDMI | grep ' connected' | awk '{print $1}' | head -n1 | tr -d '\n')}"
 
 #DEFAULT_MODE=1920x1080
 #DEFAULT_MODE=2560x1440
@@ -32,9 +32,10 @@ on() {
 }
 
 off() {
-  local target="$1"
   #echo \
-  $XRANDR --output $target --off
+  $XRANDR --output HDMI-1 --off
+  $XRANDR --output HDMI-2 --off
+  $XRANDR --output DP-1 --off
 }
 
 arg="$1"; shift
@@ -54,7 +55,5 @@ case "$arg" in
     fi
   ;;
 
-  *)
-  echo "Usage: extmon [on|off|switch]"
-  ;;
+  *) echo "Usage: extmon [on|off|switch]" ;;
 esac

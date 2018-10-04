@@ -26,5 +26,5 @@ assign [class="Spotify"] "$ws5"
 # Launch program.
 ##
 set $exec_spotify exec spotify --force-device-scale-factor=2
-bindsym $mod+Shift+s $exec_spotify
-$exec_spotify
+#bindsym $mod+Shift+s $exec_spotify
+#$exec_spotify

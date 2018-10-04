@@ -810,3 +810,7 @@ export TERM=xterm
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/werle/.sdkman"
+[[ -s "/home/werle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/werle/.sdkman/bin/sdkman-init.sh"

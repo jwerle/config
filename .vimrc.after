@@ -1,5 +1,5 @@
 " globals
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = 'right'
 let g:JSHintHighlightErrorLine = 0
 
 " Status line configuration
@@ -8,9 +8,28 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
 
+
+let g:ale_c_clang_options = ' -I' . getcwd()
+let g:ale_c_clang_options .= ' -I' . getcwd() . '/build/include'
+let g:ale_c_clang_options .= ' -I' . getcwd() . '/include'
+let g:ale_c_clang_options .= ' -I' . getcwd() . '/deps'
+let g:ale_cpp_clang_options = g:ale_c_clang_options
+
+let g:ale_c_gcc_options = g:ale_c_clang_options
+let g:ale_cpp_gcc_options = g:ale_c_clang_options
+
+let g:ale_c_clangtidy_options = g:ale_c_clang_options
+let g:ale_cpp_clangtidy_options = g:ale_c_clang_options
+
+let g:ale_c_clangcheck_options = g:ale_c_clang_options
+let g:ale_cpp_clangcheck_options = g:ale_c_clang_options
+
+let g:ale_cpp_cpplint_options = g:ale_c_clang_options
+let g:ale_cpp_cppcheck_options = g:ale_c_clang_options
+
 " C Syntastic options
 let g:syntastic_c_auto_refresh_includes = 1
-let g:syntastic_c_include_dirs = [ "include", "deps", "build/include", "Headers", "headers", "build/Headers" ]
+let g:syntastic_c_include_dirs = [ 'include', 'deps', 'build/include', 'Headers', 'headers', 'build/Headers' ]
 let g:syntastic_c_check_header = 1
 
 let g:syntastic_always_populate_loc_list = 1
@@ -54,6 +73,9 @@ let NERDTreeHijackNetrw = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeChDirMode = 2
 let NERDTreeDirArrows = 0
+
+" ALE
+let g:ale_linters = { 'javascript': ['eslint'] }
 
 " map ESC
 imap jj <ESC>
@@ -114,6 +136,8 @@ autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
 au BufNewFile,BufRead *.ejs,*.tmpl,*.mu,*.tpl,*.xhtml set filetype=html
 
 au BufNewFile,BufRead .netrc set filetype=netrc
+au BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .eslintrc set syntax=json
 
 au BufNewFile,BufRead Servicefile set filetype=sh
 au BufNewFile,BufRead Servicefile set syntax=sh
@@ -136,10 +160,15 @@ au BufNewFile,BufRead .cfsrc set syntax=conf
 au BufNewFile,BufRead .ararc set filetype=conf
 au BufNewFile,BufRead .ararc set syntax=conf
 
+" au BufNewFile,BufRead *.kt set filetype=kotlin
+" au BufNewFile,BufRead *.kt set syntax=kotlin
+
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set filetype=glsl
 au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
 
 highlight LineNr ctermfg=grey
+
+ALEEnable
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc"))

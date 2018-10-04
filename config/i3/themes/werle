@@ -1,20 +1,20 @@
 # vim: set syntax=i3:
-set $FOCUS #2A58A7
-set $UNFOCUS #91A4C4
+set $FOCUS #1D3546
+set $UNFOCUS #6EA2C7
 set $black #182337
 set $darkblack #040F20
 set $transparent #00000000
 
 # Layout colors 	      bord 	    bg 		    text      indicator (split)
-client.focused 			    $FOCUS    $FOCUS    $FOCUS    $FOCUS
+client.focused 			    $FOCUSa    $FOCUS    $FOCUS    $FOCUS
 client.focused_inactive $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
 client.unfocused 		    $UNFOCUS  $UNFOCUS  $UNFOCUS  $UNFOCUS
 client.urgent 			    $FOCUS    $FOCUS    $FOCUS    $FOCUS
 client.background 		  $UNFOCUS
 
 ### Borders ###
-new_window pixel 0
-new_float pixel 0
+new_window pixel 8
+new_float pixel 8
 
 focus_follows_mouse no
 hide_edge_borders both
