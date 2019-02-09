@@ -1,4 +1,3 @@
-# vim: ft=dosini cms=#%s
 [options]
 resize_grip = true
 scroll_on_output = false
@@ -10,7 +9,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Term Slab Bold 24
+font = Iosevka Term Slab Bold 20
 scrollback_lines = 10000
 search_wrap = true
 icon_name = terminal

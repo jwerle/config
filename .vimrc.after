@@ -8,7 +8,6 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
 
-
 let g:ale_c_clang_options = ' -I' . getcwd()
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/build/include'
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/include'
@@ -160,6 +159,12 @@ au BufNewFile,BufRead .cfsrc set syntax=conf
 au BufNewFile,BufRead .ararc set filetype=conf
 au BufNewFile,BufRead .ararc set syntax=conf
 
+au BufNewFile,BufRead .bash* set filetype=sh
+au BufNewFile,BufRead .bash* set syntax=sh
+
+au BufNewFile,BufRead *termite/config set filetype=dosini
+au BufNewFile,BufRead *termite/config set syntax=dosini
+
 " au BufNewFile,BufRead *.kt set filetype=kotlin
 " au BufNewFile,BufRead *.kt set syntax=kotlin
 
@@ -168,9 +173,10 @@ au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
 
 highlight LineNr ctermfg=grey
 
+set modelines=1
 ALEEnable
 
 " source local `./.vimrc' file
-if filereadable(glob("./.vimrc"))
+if filereadable(glob("./.vimrc")) && $HOME != getcwd()
   source ./.vimrc
 endif

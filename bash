@@ -1,4 +1,4 @@
-# vim: set syntax=sh:
+## vim: set syntax=sh
 
 export HISTCONTROL=ignoreboth:erasedups
 
@@ -170,7 +170,6 @@ alias grep="grep --color=auto"
 alias df="df -h"
 alias du="du -shc"
 alias top="htop"
-alias apt="sudo apt-get"
 alias pac="sudo pacman"
 alias pak="sudo packer"
 alias dot_clean="find /home -name '._*' -exec rm {} \;"
@@ -721,36 +720,6 @@ function prompt_command() {
 
 # Show awesome prompt only if Git is istalled
 command -v git >/dev/null 2>&1 && PROMPT_COMMAND=prompt_command
-complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
-
-function printDelay () {
-  local delay=$1
-  shift 1
-  local word=$@
-  for (( i=0; i<${#word}; i++ )); do
-    printf "${word:$i:1}"
-    sleep $delay
-  done
-}
-
-[[ -s /Users/jwerle/.nvm/nvm.sh ]] && . /Users/jwerle/.nvm/nvm.sh # This loads NVM
-
-
-## where the fun begins......
-function saySomething () {
-  # Array with expressions
-  expressions=("Its going to be legendary"
-    "Ploink Poink" "I Need Oil" "Some Bytes are Missing!" "Poink Poink" "Piiiip Beeeep!!" "Hello" "Whoops! I'm out of memmory!")
-
-  # Seed random generator
-  RANDOM=$$$(date +%s)
-
-  # Get random expression...
-  selectedexpression=${expressions[$RANDOM % ${#expressions[@]} ]}
-
-  # Write to Shell
-  echo $selectedexpression
-}
 
 if test -d ~/repos;
   then
@@ -769,8 +738,7 @@ fi
 
 #eval $(ssh-agent) 2>&1 >/dev/null
 
-ssh-add
-ssh-add ~/.ssh/littlstar/*/*.pem
+ssh-add 2>/dev/null
 
 export GOROOT=/usr/local/go
 export GOPATH=~/go
@@ -786,6 +754,7 @@ export PATH="$PATH:~/node_modules/.bin"
 export PATH="$PATH:./node_modules/.bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rbenv/shims"
+export PATH="$PATH:/opt/kotlin-native/bin"
 
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
@@ -800,16 +769,8 @@ alias guitarpro='/opt/GuitarPro6/launcher.sh'
 
 ### Added by the Heroku Toolbelt
 export TERM=xterm
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash ] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.bash
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+## Ara bin path :]
+export PATH="$HOME/.ara/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/werle/.sdkman"
