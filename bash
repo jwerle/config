@@ -177,6 +177,7 @@ alias pac="sudo pacman"
 alias pak="sudo packer"
 alias dot_clean="find /home -name '._*' -exec rm {} \;"
 alias tf="time terraform"
+alias webtorrent="webtorrent --not-on-top"
 
 if [ $OS == "Darwin" -o $OS == "FreeBSD" ]; then
   alias ls="ls -hG"
