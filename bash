@@ -763,7 +763,7 @@ export PATH="$PATH:/opt/kotlin-native/bin"
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
 alias syncer="~/repos/adnxs/repo-syncer/syncer  ~/repos/adnxs/hbui/hbui/ jwerle.adnxs.net:hbui/hbui -e .git"
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color tmux"
 alias publicip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias s3="s4cmd"
 alias yarni="yarn --ignore-engines"
@@ -772,10 +772,12 @@ alias ffpd='ffprobe -show_streams -show_format -print_format json -loglevel debu
 alias guitarpro='/opt/GuitarPro6/launcher.sh'
 
 ### Added by the Heroku Toolbelt
-export TERM=xterm
+export TERM=xterm-256color
 ## Ara bin path :]
 export PATH="$HOME/.ara/bin:$PATH"
+export DELTA_PAGER='less -R'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/werle/.sdkman"
 [[ -s "/home/werle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/werle/.sdkman/bin/sdkman-init.sh"
+. "$HOME/.cargo/env"

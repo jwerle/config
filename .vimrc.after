@@ -8,6 +8,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 nnoremap <silent> ` :Errors<CR>
 
+" highlight all occurrences of word on double click
+nnoremap <silent> <2-leftMouse> :exe 'highlight DoubleClick ctermbg=green guibg=green<bar>match DoubleClick /\V\<'.escape(expand('<cword>'), '\').'\>/'<cr>
+
 let g:ale_c_clang_options = ' -I' . getcwd()
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/build/include'
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/include'
@@ -15,16 +18,16 @@ let g:ale_c_clang_options .= ' -I' . getcwd() . '/deps'
 let g:ale_cpp_clang_options = g:ale_c_clang_options
 
 let g:ale_c_gcc_options = g:ale_c_clang_options
-let g:ale_cpp_gcc_options = g:ale_c_clang_options
+let g:ale_cpp_gcc_options = g:ale_cpp_clang_options
 
 let g:ale_c_clangtidy_options = g:ale_c_clang_options
-let g:ale_cpp_clangtidy_options = g:ale_c_clang_options
+let g:ale_cpp_clangtidy_options = g:ale_cpp_clang_options
 
 let g:ale_c_clangcheck_options = g:ale_c_clang_options
-let g:ale_cpp_clangcheck_options = g:ale_c_clang_options
+let g:ale_cpp_clangcheck_options = g:ale_cpp_clang_options
 
-let g:ale_cpp_cpplint_options = g:ale_c_clang_options
-let g:ale_cpp_cppcheck_options = g:ale_c_clang_options
+let g:ale_cpp_cpplint_options = g:ale_cpp_clang_options
+let g:ale_cpp_cppcheck_options = g:ale_cpp_clang_options
 
 " C Syntastic options
 let g:syntastic_c_auto_refresh_includes = 1
@@ -64,6 +67,11 @@ let g:jsdoc_enable_es6 = 1
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+
+let g:syntastic_typescript_tsc_fname = ''
 
 " nerdtree setup
 let NERDTreeShowBookmarks = 0
@@ -105,6 +113,8 @@ set cpoptions+=$
 " Adds `./deps/**' to the local include path for C files
 set path+=./deps/**
 
+set mouse=a
+
 " plum theme
 set term=screen-256color
 set bg=dark
@@ -131,6 +141,8 @@ set backupdir=~/tmp/vim/backup
 autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
 autocmd FileType js,javascript,glsl,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
+
+au BufNewFile,BufRead *.js set filetype=javascript
 
 au BufNewFile,BufRead *.ejs,*.tmpl,*.mu,*.tpl,*.xhtml set filetype=html
 
