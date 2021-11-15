@@ -84,6 +84,8 @@ let NERDTreeDirArrows = 0
 " ALE
 let g:ale_linters = { 'javascript': ['eslint'] }
 
+let g:auto_ctags = 1
+
 " map ESC
 imap jj <ESC>
 
@@ -185,8 +187,20 @@ au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
 
 highlight LineNr ctermfg=grey
 
+set mouse=a
 set modelines=1
 ALEEnable
+
+let g:tagbar_type_solidity = {
+    \ 'ctagstype': 'solidity',
+    \ 'kinds' : [
+        \ 'c:contracts',
+        \ 'e:events',
+        \ 'f:functions',
+        \ 'm:mappings',
+        \ 'v:varialbes'
+    \ ]
+\ }
 
 " source local `./.vimrc' file
 if filereadable(glob("./.vimrc")) && $HOME != getcwd()
