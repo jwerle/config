@@ -2,6 +2,81 @@
 let g:NERDTreeWinPos = 'right'
 let g:JSHintHighlightErrorLine = 0
 
+let g:ale_c_clang_options = ''
+let g:ale_cpp_clang_options = ''
+
+" displays <% %> correctly
+autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
+autocmd FileType js,javascript,glsl,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
+
+au BufNewFile,BufRead *.js set filetype=javascript
+
+au BufNewFile,BufRead *.ejs,*.tmpl,*.mu,*.tpl,*.xhtml set filetype=html
+
+au BufNewFile,BufRead .netrc set filetype=netrc
+au BufNewFile,BufRead .eslintrc set filetype=json
+au BufNewFile,BufRead .eslintrc set syntax=json
+
+au BufNewFile,BufRead operator.config set filetype=yaml
+au BufNewFile,BufRead operator.config set syntax=yaml
+
+au BufNewFile,BufRead Servicefile set filetype=sh
+au BufNewFile,BufRead Servicefile set syntax=sh
+
+au BufNewFile,BufRead .npmignore set filetype=sh
+au BufNewFile,BufRead .npmignore set syntax=sh
+
+au BufNewFile,BufRead .*vimrc* set filetype=vim
+au BufNewFile,BufRead .*vimrc* set syntax=vim
+
+au BufNewFile,BufRead .*conf* set filetype=conf
+au BufNewFile,BufRead .*conf* set syntax=conf
+
+au BufNewFile,BufRead .babelrc set filetype=json
+au BufNewFile,BufRead .babelrc set syntax=json
+
+au BufNewFile,BufRead .cfsrc set filetype=conf
+au BufNewFile,BufRead .cfsrc set syntax=conf
+
+au BufNewFile,BufRead .ararc set filetype=conf
+au BufNewFile,BufRead .ararc set syntax=conf
+
+au BufNewFile,BufRead .bash* set filetype=sh
+au BufNewFile,BufRead .bash* set syntax=sh
+
+au BufNewFile,BufRead *termite/config set filetype=dosini
+au BufNewFile,BufRead *termite/config set syntax=dosini
+
+" au BufNewFile,BufRead *.kt set filetype=kotlin
+" au BufNewFile,BufRead *.kt set syntax=kotlin
+
+au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set filetype=glsl
+au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
+
+highlight LineNr ctermfg=grey
+
+set mouse=a
+set modelines=1
+ALEDisable
+
+let g:tagbar_type_solidity = {
+    \ 'ctagstype': 'solidity',
+    \ 'kinds' : [
+        \ 'c:contracts',
+        \ 'e:events',
+        \ 'f:functions',
+        \ 'm:mappings',
+        \ 'v:varialbes'
+    \ ]
+\ }
+
+
+" source local `./.vimrc' file
+if filereadable(glob("./.vimrc")) && $HOME != getcwd()
+  source ./.vimrc
+endif
+
 " Status line configuration
 set statusline+=%#warningmsg#  " Add Error ruler.
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -11,11 +86,15 @@ nnoremap <silent> ` :Errors<CR>
 " highlight all occurrences of word on double click
 nnoremap <silent> <2-leftMouse> :exe 'highlight DoubleClick ctermbg=green guibg=green<bar>match DoubleClick /\V\<'.escape(expand('<cword>'), '\').'\>/'<cr>
 
-let g:ale_c_clang_options = ' -I' . getcwd()
+let g:ale_c_clang_options .= ' -I' . getcwd()
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/build/include'
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/include'
 let g:ale_c_clang_options .= ' -I' . getcwd() . '/deps'
 let g:ale_cpp_clang_options = g:ale_c_clang_options
+let g:ale_objc_clang_options = g:ale_c_clang_options
+
+let g:ale_c_cc_options = g:ale_c_clang_options
+let g:ale_cpp_cc_options = g:ale_cpp_clang_options
 
 let g:ale_c_gcc_options = g:ale_c_clang_options
 let g:ale_cpp_gcc_options = g:ale_cpp_clang_options
@@ -139,70 +218,21 @@ set undolevels=1000
 set undoreload=1000
 set backupdir=~/tmp/vim/backup
 
-" displays <% %> correctly
-autocmd User Rails let b:surround_{char2nr('-')} = "<% \r %>"
-autocmd FileType js,javascript,glsl,c,cc,cpp,sly highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd FileType js,javascript,glsl,c,cc,cpp,sly  match OverLength /\%81v.\+/
 
-au BufNewFile,BufRead *.js set filetype=javascript
 
-au BufNewFile,BufRead *.ejs,*.tmpl,*.mu,*.tpl,*.xhtml set filetype=html
+""" XXX
+let g:clang_format#auto_format=1
 
-au BufNewFile,BufRead .netrc set filetype=netrc
-au BufNewFile,BufRead .eslintrc set filetype=json
-au BufNewFile,BufRead .eslintrc set syntax=json
+let g:ale_c_clang_options = ' -I/usr/lib/jvm/java-18-openjdk-amd64/include'
+let g:ale_c_clang_options .= ' -I/usr/lib/jvm/java-18-openjdk-amd64/include/linux'
+let g:ale_kotlin_ktlint_options = '--android'
 
-au BufNewFile,BufRead Servicefile set filetype=sh
-au BufNewFile,BufRead Servicefile set syntax=sh
+let g:android_sdk_path = $HOME . '/android'
 
-au BufNewFile,BufRead .npmignore set filetype=sh
-au BufNewFile,BufRead .npmignore set syntax=sh
+au BufNewFile,BufRead *.h set filetype=cpp
+au BufNewFile,BufRead *.h set syntax=cpp
 
-au BufNewFile,BufRead .*vimrc* set filetype=vim
-au BufNewFile,BufRead .*vimrc* set syntax=vim
-
-au BufNewFile,BufRead .*conf* set filetype=conf
-au BufNewFile,BufRead .*conf* set syntax=conf
-
-au BufNewFile,BufRead .babelrc set filetype=json
-au BufNewFile,BufRead .babelrc set syntax=json
-
-au BufNewFile,BufRead .cfsrc set filetype=conf
-au BufNewFile,BufRead .cfsrc set syntax=conf
-
-au BufNewFile,BufRead .ararc set filetype=conf
-au BufNewFile,BufRead .ararc set syntax=conf
-
-au BufNewFile,BufRead .bash* set filetype=sh
-au BufNewFile,BufRead .bash* set syntax=sh
-
-au BufNewFile,BufRead *termite/config set filetype=dosini
-au BufNewFile,BufRead *termite/config set syntax=dosini
-
-" au BufNewFile,BufRead *.kt set filetype=kotlin
-" au BufNewFile,BufRead *.kt set syntax=kotlin
-
-au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set filetype=glsl
-au BufNewFile,BufRead *.glsl,*.vert,*.vertex,*.frag,*.fragment set syntax=glsl
-
-highlight LineNr ctermfg=grey
-
-set mouse=a
-set modelines=1
-ALEEnable
-
-let g:tagbar_type_solidity = {
-    \ 'ctagstype': 'solidity',
-    \ 'kinds' : [
-        \ 'c:contracts',
-        \ 'e:events',
-        \ 'f:functions',
-        \ 'm:mappings',
-        \ 'v:varialbes'
-    \ ]
-\ }
-
-" source local `./.vimrc' file
-if filereadable(glob("./.vimrc")) && $HOME != getcwd()
-  source ./.vimrc
-endif
+set tabstop=2
+set shiftwidth=2 smarttab
+set softtabstop=2
+set expandtab
