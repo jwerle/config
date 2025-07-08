@@ -156,7 +156,7 @@ Purple='\e[0;35m'       # Purple
 Cyan='\e[0;36m'         # Cyan
 White='\e[0;37m'        # White
 
-PS1="\n${Yellow}[${txtrst} \h-${Green}\u${txtrst} \w\$(__git_ps1) ${Yellow}]${txtrst}\n $ "
+PS1="\n${Yellow}[${txtrst} \h-${Green}\u${txtrst} \w\$(__git_ps1) $(date +'%T') ${Yellow}]${txtrst}\n $ "
 
 # Enable use of git in the shell environment/prompt
 if test -f $HOME/.dotfiles/git-completion.bash; then
@@ -178,6 +178,7 @@ alias pak="sudo packer"
 alias dot_clean="find /home -name '._*' -exec rm {} \;"
 alias tf="time terraform"
 alias webtorrent="webtorrent --not-on-top"
+alias awslocal="aws --endpoint-url=http://localhost:4566"
 
 if [ $OS == "Darwin" -o $OS == "FreeBSD" ]; then
   alias ls="ls -hG"
@@ -706,7 +707,7 @@ function prompt_command() {
   [ -n "$user_prompt" ] || [ -n "$host_prompt" ] && login_delimiter=":"
 
   # Format prompt
-  first_line="$user_prompt$host_prompt$login_delimiter$WHITE\w$NOCOLOR$git_prompt"
+  first_line="$user_prompt$host_prompt$login_delimiter$WHITE\w$NOCOLOR $(date +'%T') $git_prompt"
   # Text (commands) inside \[...\] does not impact line length calculation which fixes stange bug when looking through the history
   # $? is a status of last command, should be processed every time prompt prints
   #second_line="\`if [ \$? = 0 ]; then echo \[\$CYAN\]; else echo \[\$RED\]; fi\`\$prompt_symbol\[\$NOCOLOR\] "
@@ -760,6 +761,12 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.rbenv/shims"
 export PATH="$PATH:/opt/kotlin-native/bin"
 
+export ANDROID_HOME=$HOME/android
+export PATH=$ANDROID_HOME/cmdline-tools/tools/bin/:$PATH
+export PATH=$ANDROID_HOME/emulator/:$PATH
+export PATH=$ANDROID_HOME/platform-tools/:$PATH
+export PATH="/usr/lib/llvm-15/bin/:$PATH"
+
 alias nw="/Applications/node-webkit.app/Contents/MacOS/node-webkit"
 alias wm="tmux -2 attach -t werle"
 alias syncer="~/repos/adnxs/repo-syncer/syncer  ~/repos/adnxs/hbui/hbui/ jwerle.adnxs.net:hbui/hbui -e .git"
@@ -776,8 +783,3 @@ export TERM=xterm-256color
 ## Ara bin path :]
 export PATH="$HOME/.ara/bin:$PATH"
 export DELTA_PAGER='less -R'
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/werle/.sdkman"
-[[ -s "/home/werle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/werle/.sdkman/bin/sdkman-init.sh"
-. "$HOME/.cargo/env"
