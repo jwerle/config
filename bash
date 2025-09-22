@@ -783,3 +783,37 @@ export TERM=xterm-256color
 ## Ara bin path :]
 export PATH="$HOME/.ara/bin:$PATH"
 export DELTA_PAGER='less -R'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/werle/.sdkman"
+[[ -s "/home/werle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/werle/.sdkman/bin/sdkman-init.sh"
+. "$HOME/.cargo/env"
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/werle/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/werle/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/werle/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/werle/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+alias openssl=/bin/openssl
+source /home/werle/.bash_completions/chroma.sh
+
+# pnpm
+export PNPM_HOME="/home/werle/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -182,6 +182,13 @@ noremap <leader>ww <NOP>
 " ctrl-p setup
 map <leader>p :CtrlP<cr>
 
+noremap <leader>f :call g:scope#fuzzy#File('fdfind')<cr>
+noremap <leader>g :call g:scope#fuzzy#Grep('ag --vimgrep')<cr>
+noremap <leader>f :call g:scope#fuzzy#File('fdfind')<cr>
+noremap <leader>g :call g:scope#fuzzy#Grep('ag --vimgrep')<cr>
+noremap <CS-F> :call g:scope#fuzzy#File('fdfind')<cr>
+noremap <CS-G> :call g:scope#fuzzy#Grep('ag --vimgrep')<cr>
+
 set guifont=Roboto:h12
 " Removes top toolbar
 set guioptions-=T
