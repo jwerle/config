@@ -783,13 +783,13 @@ export TERM=xterm-256color
 ## Ara bin path :]
 export PATH="$HOME/.ara/bin:$PATH"
 export DELTA_PAGER='less -R'
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/werle/.sdkman"
 [[ -s "/home/werle/.sdkman/bin/sdkman-init.sh" ]] && source "/home/werle/.sdkman/bin/sdkman-init.sh"
 . "$HOME/.cargo/env"
-. "$HOME/.asdf/asdf.sh"
-. "$HOME/.asdf/completions/asdf.bash"
+. <(asdf completion bash)
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -808,7 +808,6 @@ unset __conda_setup
 
 
 alias openssl=/bin/openssl
-source /home/werle/.bash_completions/chroma.sh
 
 # pnpm
 export PNPM_HOME="/home/werle/.local/share/pnpm"
